@@ -39,15 +39,15 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   if (config.exists == false) {
     // Config doesn't exist, make something
     configRef.set({
-      "lastId": "",
+      "sentIds": [],
       "lastEpoch": ""
     });
   }
 
   const configData = config.data();
-  let lastId = "";
+  let sentIds = [];
   if (configData != undefined) {
-    lastId = configData.lastId;
+    sentIds = configData.sendIds;
     let lastEpoch = configData.lastEpoch;
     let currentEpoch = new Date().getTime();
     let elapsed = currentEpoch - lastEpoch;
@@ -83,29 +83,21 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       for (const iteIdx in (<AP.EntityReference[]>outbox.orderedItems)) {
         // We have to break somewhere... do it after the first.
         const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
-        console.log(`Checking ID ${item.id}, ${lastId}`);
-        if (item.id == `${lastId}`) {
-          lastSuccessfulSentId = item.id;
-          // We've already posted this, don't try and send it again.
-          console.log(`${item.id} has already been posted - don't attempt`)
-          break;
+        console.log(`Checking ID ${item.id}, ${sentIds}`);
+        if (!sentIds.includes(item.id)) {
+          if (item.object != undefined) {
+            // We might not need this.
+            item.object.published = (new Date()).toISOString();
+          }
+
+          console.log(`Sending to ${actorInbox}`);
+
+          // Item will be an entity, i.e, { Create { Note } }
+          const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
+          console.log(`Send result: ${actorInbox}`, response.status, response.statusText, await response.text());
+
+          sentIds.push(item.id)
         }
-
-        if (item.object != undefined) {
-          // We might not need this.
-          item.object.published = (new Date()).toISOString();
-        }
-
-        console.log(`Sending to ${actorInbox}`);
-
-        // Item will be an entity, i.e, { Create { Note } }
-        const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
-        console.log(`Send result: ${actorInbox}`, response.status, response.statusText, await response.text());
-
-        // It's not been sent.
-        lastSuccessfulSentId = item.id; // we shouldn't really set this everytime.
-
-        //break; // At some point we might want to post more than one post, so remove this.
       }
     } catch (ex) {
       console.log("Error", ex);
@@ -113,7 +105,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
 
   configRef.set({
-    "lastId": lastSuccessfulSentId,
+    "sentIds": sentIds,
     "lastEpoch": new Date().getTime()
   });
 
