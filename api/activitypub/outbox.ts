@@ -4,7 +4,7 @@ import { cwd } from 'process';
 import { readFileSync } from 'fs';
 
 /*
-  This returns a list of posts for the single user 'FLEAR'.
+  This returns a list of posts for the single user.
 
   It's a GET request. This doesn't post it to anyone's timeline.
 */
