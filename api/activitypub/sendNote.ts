@@ -47,7 +47,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const configData = config.data();
   let sentIds = [];
   if (configData != undefined) {
-    sentIds.push(...configData.sentIds);
+    let sentIds = configData.sentIds);
     let lastEpoch = configData.lastEpoch;
     let currentEpoch = new Date().getTime();
     let elapsed = currentEpoch - lastEpoch;
@@ -104,7 +104,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     }
   }
 
-  sentIds.push(...sendingIds);
+  sentIds.add(...sendingIds);
   configRef.set({
     "sentIds": sentIds,
     "lastEpoch": new Date().getTime()
