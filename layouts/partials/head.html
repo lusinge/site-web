@@ -17,35 +17,59 @@
   <link rel="webmention" href="https://webmention.io/flear.org/webmention" />
   <link rel="pingback" href="https://webmention.io/flear.org/xmlrpc" />
   <meta name="supported-color-schemes" content="light dark">
-
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}#000000{{ end }}">
+
+  <meta name="og:site_name" content="FLEAR">
+  <meta name="twitter:site" content="@FLEAR_radio">
+  <meta name="twitter:creator" content="@FLEAR_radio">
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image">
+
   {{if .Params.image_header}}
     <meta name="twitter:image" content="{{.Params.image_header}}">
   {{else}}
-  {{ $tags := .Params.tags}}
+    {{ $tags := .Params.tags}}
     {{ if .Params.social_image_url }}
     {{ $socialURL := printf "https://flear.org/api/card?%s" (querify "title" .Title "imgUrl" .Params.social_image_url ) }}
-    <meta name="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
-    <meta property="og:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
+      <meta name="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
+      <meta property="og:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
     {{else}}
       {{ $socialURL := printf "https://flear.org/api/card?%s" (querify "title" .Title) }}
       <meta name="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
       <meta property="og:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
     {{end}}
   {{end}}
-  <meta name="twitter:site" content="@FLEAR_radio">
-  <meta name="twitter:creator" content="@FLEAR_radio">
+
   {{ if .Title }}
-  <meta name="twitter:title" content="{{ .Title }}">
+    <meta name="og:title" content="{{ .Title }}">
+    <meta name="twitter:title" content="{{ .Title }}">
+  {{ else if .Site.Title }}
+    <meta name="og:title" content="{{.Site.Title}}">
+    <meta name="twitter:title" content="{{.Site.Title}}">
+  {{ else }}
+    <meta name="og:title" content="FLEAR - Free and Libre Engineers for Amateur Radio">
+    <meta name="twitter:title" content="FLEAR - Free and Libre Engineers for Amateur Radio">
   {{end}}
-  <meta name="og:title" content="{{ if .Title }}{{ .Title }}{{else}}{{.Site.Title}}{{end}}">
-  <meta name="og:url" content="{{ .Permalink | safeURL }}">
-  <meta name="og:site_name" content="FLEAR - Free and Libre Engineers for Amateur Radio">
-  {{ if .Summary }}<meta name="og:description" content="{{ .Summary }}">{{end}}
-  <meta name="description" content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}">
-  <meta name="twitter:description" content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}">
+
+  {{ if .Permalink }}
+    <meta name="og:url" content="{{ .Permalink }}">
+    <meta name="twitter:url" content="{{ .Permalink }}">
+  {{end}}
+
+  {{if .Description}}
+    <meta name="og:description" content="{{ .Description }}">
+    <meta name="description" content="{{ .Description }}">
+    <meta name="twitter:description" content="{{ .Description }}">
+  {{else if .Site.Params.Description}}
+    <meta name="og:description" content="{{ .Site.Params.Description }}">
+    <meta name="description" content="{{ .Site.Params.Description }}">
+    <meta name="twitter:description" content="{{ .Site.Params.Description }}">
+  {{else}}
+    <meta name="og:description" content="FLEAR, An open-source and open-standards incubator for Ham Radio">
+    <meta name="description" content="FLEAR, An open-source and open-standards incubator for Ham Radio">
+    <meta name="twitter:description" content="FLEAR, An open-source and open-standards incubator for Ham Radio">
+  {{end}}
+
   <script defer src="/_vercel/insights/script.js"></script>
   <script type="application/ld+json">
     {
