@@ -6,22 +6,23 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
   {{ range $.Page.AllTranslations }}
   <link rel="alternate" hreflang="{{.Lang}}" href="{{.Permalink}}" />{{if eq .Lang "en"}}
   <link rel="alternate" hreflang="x-default" href="{{.Permalink}}" />{{end}}
   {{ end }}
-  <title>{{if .IsPage }}{{ if .Title }}{{ .Title }}{{ end }}{{else}}{{.Site.Title}}{{end}}</title>
   <link rel="canonical" href="{{ .Page.Permalink }}" />
-  <meta name="author" content="{{ .Site.Params.author }}">
-  <link rel="webmention" href="https://webmention.io/flear.org/webmention" />
-  <link rel="pingback" href="https://webmention.io/flear.org/xmlrpc" />
+  <meta name="author" content="{{ .Site.Params.siteAuthor }}">
+  <link rel="webmention" href="https://webmention.io/{{ (urls.Parse site.BaseURL).Hostname }}/webmention" />
+  <link rel="pingback" href="https://webmention.io/{{ (urls.Parse site.BaseURL).Hostname }}/xmlrpc" />
   <meta name="supported-color-schemes" content="light dark">
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}#000000{{ end }}">
 
-  <meta property="og:site_name" content="FLEAR">
-  <meta property="twitter:site" content="@FLEAR_radio">
-  <meta property="twitter:creator" content="@FLEAR_radio">
+  <meta property="og:site_name" content="{{ site.Params.siteName }}">
+
+  <!-- Indicates the twitter account that is the source for this webpage -->
+  <meta property="twitter:site" content="@{{ site.Params.twitterUser }}">
+  <meta property="twitter:creator" content="@{{ site.Params.twitterUser }}">
+
   <meta property="og:type" content="website" />
   <meta property="twitter:card" content="summary_large_image">
 
@@ -29,36 +30,36 @@
     <meta property="twitter:image" content="{{.Params.image_header}}">
     <meta property="og:image" content="{{.Params.image_header}}">
   {{ else if .IsHome }}
-    <meta property="twitter:image" content="/images/logo-header-light.png">
-    <meta property="og:image" content="/images/logo-header-light.png">
+    <meta property="twitter:image" content="/images/logo.png">
+    <meta property="og:image" content="/images/logo.png">
   {{else}}
     {{ $tags := .Params.tags}}
     {{ if .Params.social_image_url }}
-      {{ $socialURL := printf "https://flear.org/api/card?%s" (querify "title" .Title "imgUrl" .Params.social_image_url ) }}
+      {{ $socialURL := printf "%sapi/card?%s" site.BaseURL (querify "title" .Title "imgUrl" .Params.social_image_url ) }}
       <meta property="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
       <meta property="og:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
     {{else if .Title}}
-      {{ $socialURL := printf "https://flear.org/api/card?%s" (querify "title" .Title) }}
+      {{ $socialURL := printf "%sapi/card?%s" site.BaseURL (querify "title" .Title) }}
       <meta property="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
       <meta property="og:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
     {{ else }}
-      <meta property="twitter:image" content="https://flear.org/images/logo.png">
-      <meta property="og:image" content="https://flear.org/images/logo.png">
+      <meta property="twitter:image" content="{{ site.BaseURL }}images/logo.png">
+      <meta property="og:image" content="{{ site.BaseURL }}images/logo.png">
     {{end}}
   {{end}}
 
   {{ if .Title }}
-    <title>FLEAR: {{ .Title }}</title>
+    <title>{{ site.Params.siteName }}: {{ .Title }}</title>
     <meta property="og:title" content="{{ .Title }}">
     <meta property="twitter:title" content="{{ .Title }}">
-  {{ else if .Site.Title }}
-    <title>FLEAR: {{ .Site.Title }}</title>
-    <meta property="og:title" content="{{.Site.Title}}">
-    <meta property="twitter:title" content="{{.Site.Title}}">
+  {{ else if site.Title }}
+    <title>{{ site.Params.siteName }}: {{ site.Title }}</title>
+    <meta property="og:title" content="{{ site.Title }}">
+    <meta property="twitter:title" content="{{ site.Title }}">
   {{ else }}
-    <title>FLEAR - Free and Libre Engineers for Amateur Radio</title>
-    <meta property="og:title" content="FLEAR - Free and Libre Engineers for Amateur Radio">
-    <meta property="twitter:title" content="FLEAR - Free and Libre Engineers for Amateur Radio">
+    <title>{{ site.Params.siteName }}</title>
+    <meta property="og:title" content="{{ site.Params.siteName }}">
+    <meta property="twitter:title" content="{{ site.Params.siteName }}">
   {{end}}
 
   {{ if .Permalink }}
@@ -66,18 +67,15 @@
     <meta property="twitter:url" content="{{ .Permalink }}">
   {{end}}
 
+  <!-- If there is an article with a description front matter then use that, otherwise fallback to the site wide description -->
   {{if .Description}}
     <meta property="og:description" content="{{ .Description }}">
     <meta property="description" content="{{ .Description }}">
     <meta property="twitter:description" content="{{ .Description }}">
-  {{else if .Site.Params.Description}}
-    <meta property="og:description" content="{{ .Site.Params.Description }}">
-    <meta property="description" content="{{ .Site.Params.Description }}">
-    <meta property="twitter:description" content="{{ .Site.Params.Description }}">
   {{else}}
-    <meta property="og:description" content="FLEAR is an open-source and open-standards incubator for Ham Radio">
-    <meta property="description" content="FLEAR is an open-source and open-standards incubator for Ham Radio">
-    <meta property="twitter:description" content="FLEAR is an open-source and open-standards incubator for Ham Radio">
+    <meta property="og:description" content="{{ site.Params.siteDescription }}">
+    <meta property="description" content="{{ site.Params.siteDescription }}">
+    <meta property="twitter:description" content="{{ site.Params.siteDescription }}">
   {{end}}
 
   <script defer src="/_vercel/insights/script.js"></script>
@@ -85,11 +83,11 @@
     {
       "@context": "http://schema.org",
       "@type": "Person",
-      "name": "FLEAR",
-      "url": "https://flear.org/",
+      "name": "{{ site.Params.apUser }}",
+      "url": {{ site.BaseURL }},
       "sameAs": [
-        "https://twitter.com/FLEAR_radio",
-        "https://git.qoto.org/flear",
+        "https://twitter.com/{{ site.Params.twitterUser }}",
+        {{ site.Params.repoUrl }},
       ]
     }
   </script>
@@ -98,51 +96,40 @@
 {
   "@context": "http://schema.org",
   "@type": "NewsArticle",
-  "headline": {{.Title }},
+  "headline": {{ if .Title }}{{.Title }}{{ else if site.Title }}{{ site.Title }}{{ else }}{{ site.Params.siteName}}{{ end }},
   "datePublished": "{{ .Date.Format "2006-01-02T15:04:05" }}",
   "author": {
     "@type": "Person",
-    "name": "FLEAR",
-    "url": "https://flear.org/"
+    "name": {{ site.Params.apUser }},
+    "url": {{ site.BaseURL }}
   },
-  "description": "{{if .Description}}{{ .Description }}{{else}}{{.Summary}}{{end}}"
+  "description": "{{if .Description}}{{ .Description }}{{else if .Summary}}{{.Summary}}{{else}}{{ site.Params.siteDescription }}{{end}}"
 }
 </script>
 {{ end }}
-<link href="https://flear.org/flear" rel="alternate" type="application/activity+json">
-  <link rel="polymath" href="/polymath">
-  <link href="/images/logo.png" rel="icon">
-  <link href="/manifest.json" rel="manifest">
-  <link rel="home" href="{{.Site.BaseURL}}">
-  <style>
-    {{ $main := resources.Get "css/main.css" }}
-    {{ $goblin := resources.Get "css/goblin.css" }}
-    {{ $fa := resources.Get "css/fontawesome.css" }}
-    {{ $primer := resources.Get "css/primer.css" }}
-    {{ $ghost := resources.Get "css/ghost.css" }}
-    {{ $glyph := resources.Get "css/glyphicons.css" }}
+<link href="{{ site.BaseURL }}{{ site.Params.apUser | lower }}" rel="alternate" type="application/activity+json">
+<link href="/images/logo.png" rel="icon">
+<link href="/manifest.json" rel="manifest">
+<link rel="home" href="{{.Site.BaseURL}}">
+<style>
+  {{ $main := resources.Get "css/main.css" }}
+  {{ $goblin := resources.Get "css/goblin.css" }}
+  {{ $fa := resources.Get "css/fontawesome.css" }}
+  {{ $primer := resources.Get "css/primer.css" }}
+  {{ $ghost := resources.Get "css/ghost.css" }}
+  {{ $glyph := resources.Get "css/glyphicons.css" }}
 
-    {{ $css := slice $main $goblin $fa $primer $ghost $glyph | resources.Concat "css/bundle.css"  }}
-    {{ $minifiedCSS := $css | minify}}
-    {{ $minifiedCSS.Content | safeCSS }}
+  {{ $css := slice $main $goblin $fa $primer $ghost $glyph | resources.Concat "css/bundle.css"  }}
+  {{ $minifiedCSS := $css | minify}}
+  {{ $minifiedCSS.Content | safeCSS }}
 
-    header.with-background {
-      {{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}
-    }
-  </style>
-  {{ range .AlternativeOutputFormats -}}
-  <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
-  {{ end -}}
-
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-V4DZ9TE0NV"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-V4DZ9TE0NV');
-</script>
+  header.with-background {
+    {{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}
+  }
+</style>
+{{ range .AlternativeOutputFormats -}}
+<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
+{{ end -}}
 
 <script>
 {{ $jqueryJS := resources.Get "javascripts/jquery.js" | minify }}

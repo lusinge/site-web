@@ -1,0 +1,26 @@
+baseurl = "https://flear.org/"
+languageCode = "en-us"
+title = "Free and Libre Engineers for Amateur Radio"
+
+paginate = 20
+pygmentsCodeFences = true
+pygmentsCodeFencesGuessSyntax = true
+pygmentsStyle = "monokai"
+DefaultContentLanguage = "en"
+defaultContentLanguageInSubdir = false
+
+# Author displayed on posts, the current template doesnt actually render this
+[author]
+name = "FLEAR"
+email = "flear@flear.org"
+
+# Custom site variables used when rendering the template
+[params]
+siteName="FLEAR"
+siteTagLine="Free & Libre Engineers for Amateur Radio"
+# Do not include the @
+twitterUser="FLEAR_radio"
+siteDescription="FLEAR is an open-source and open-standards incubator for Ham Radio"
+# this is the user name of the ActivityPub account. It will be the first part of your handle as @apUSer@domain
+apUser="FLEAR"
+repoUrl="https://git.qoto.org/flear"

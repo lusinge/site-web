@@ -1,8 +1,5 @@
-baseurl = "https://flear.org/"
-languageCode = "en-us"
-title = "Free and Libre Engineers for Amateur Radio"
-
 Copyright = "FLEAR 2023"
+
 paginate = 20
 pygmentsCodeFences = true
 pygmentsCodeFencesGuessSyntax = true
@@ -15,15 +12,6 @@ limit = 50
 
 [permalinks]
 post = "/:title/"
-
-[author]
-name = "Jeffrey Phillips Freeman"
-email = "the@jeffreyfreeman.me"
-
-[params]
-author = "Jeffrey Phillips Freeman"
-description = "FLEAR - Free and Libre Engineers for Amateur Radio"
-analyticsid = "UA-114468-20"
 
 [taxonimies]
 tag = "tags"
@@ -71,3 +59,9 @@ typographer = false
 
 [markup.goldmark.renderer]
 unsafe = true
+
+[security.funcs]
+getenv = ['^HUGO_', '^CI$', '^ACTIPAGE_']
+
+[params]
+siteAuthor="Jeffrey Phillips Freeman"
