@@ -34,23 +34,29 @@
   {{else}}
     {{ $tags := .Params.tags}}
     {{ if .Params.social_image_url }}
-    {{ $socialURL := printf "https://flear.org/api/card?%s" (querify "title" .Title "imgUrl" .Params.social_image_url ) }}
+      {{ $socialURL := printf "https://flear.org/api/card?%s" (querify "title" .Title "imgUrl" .Params.social_image_url ) }}
       <meta name="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
       <meta property="og:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
-    {{else}}
+    {{else if .Title}}
       {{ $socialURL := printf "https://flear.org/api/card?%s" (querify "title" .Title) }}
       <meta name="twitter:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
       <meta property="og:image" {{ printf "content=%q" $socialURL |  safeHTMLAttr}}>
+    {{ else }}
+      <meta name="twitter:image" content="/images/logo-header-light.png">
+      <meta property="og:image" content="/images/logo-header-light.png">
     {{end}}
   {{end}}
 
   {{ if .Title }}
+    <title>FLEAR: {{ .Title }}</title>
     <meta name="og:title" content="{{ .Title }}">
     <meta name="twitter:title" content="{{ .Title }}">
   {{ else if .Site.Title }}
+    <title>FLEAR: {{ .Site.Title }}</title>
     <meta name="og:title" content="{{.Site.Title}}">
     <meta name="twitter:title" content="{{.Site.Title}}">
   {{ else }}
+    <title>FLEAR - Free and Libre Engineers for Amateur Radio</title>
     <meta name="og:title" content="FLEAR - Free and Libre Engineers for Amateur Radio">
     <meta name="twitter:title" content="FLEAR - Free and Libre Engineers for Amateur Radio">
   {{end}}
