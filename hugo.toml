@@ -23,4 +23,8 @@ twitterUser="FLEAR_radio"
 siteDescription="FLEAR is an open-source and open-standards incubator for Ham Radio"
 # this is the user name of the ActivityPub account. It will be the first part of your handle as @apUSer@domain
 apUser="FLEAR"
+secondaryApHost="https://qoto.org"
+secondaryApUser="FLEAR"
 repoUrl="https://git.qoto.org/flear"
+siteRepoUrl="https://git.qoto.org/flear/flear-site"
+siteEmail="flear@flear.org"

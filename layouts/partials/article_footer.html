@@ -10,9 +10,9 @@
 </div>
 {{ end }}
 <div class="widgets source">
-<a href="https://git.qoto.org/flear/flear-site/tree/master/content/{{.File.LogicalName}}" rel="nofollow">View Source</a>
+<a href="{{ site.Params.siteRepoUrl }}/tree/master/content/{{.File.LogicalName}}" rel="nofollow">View Source</a>
 |
-<a href="https://git.qoto.org/flear/flear-site/edit/master/content/{{.File.LogicalName}}" rel="nofollow">Make a correction</a>
+<a href="{{ site.Params.siteRepoUrl }}/edit/master/content/{{.File.LogicalName}}" rel="nofollow">Make a correction</a>
 |
-<a href="https://git.qoto.org/flear/flear-site/commits/master/content/{{.File.LogicalName}}" rel="nofollow">Correction history</a>
+<a href="{{ site.Params.siteRepoUrl }}/commits/master/content/{{.File.LogicalName}}" rel="nofollow">Correction history</a>
 </div>

@@ -38,3 +38,16 @@ This project (excluding post content itself) is released under the Apache Licens
 ** FIREBASE_PRIVATE_KEY
 ** FIREBASE_CLIENT_EMAIL
 ** NEXT_PUBLIC_FIREBASE_PROJECT_ID
+* Modify /layouts/partials/top_list_* to represent the section titles you want to use.
+* Update package.json
+** Update name field
+** update description field
+* Update manifest.json
+** name
+** short_name
+** description
+* Update robots.txt to point to the full URL of this site
+* Modify vercel.json
+** Find the line where source is set to "/flear" and update it to point to your apUser name (all lowercase even if variable has case).
+
+The above steps might be reduced by using template processing on otherwise unprocessed files (normally not part of hugo). See the following for more info https://vercel.com/docs/functions/serverless-functions/runtimes/node-js

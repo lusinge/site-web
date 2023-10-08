@@ -25,13 +25,13 @@
       "@context": "https://www.w3.org/ns/activitystreams",
       "id": "{{.Permalink}}-create",
       "type": "Create",
-      "actor": "https://flear.org/flear",
+      "actor": "{{ .Site.BaseURL }}{{ site.Params.apUser | lower}}",
       "object": {
         "id": "{{ .Permalink }}",
         "type": "Note",
         "content": "{{.Title}}<br><a href='{{.Permalink}}'>{{.Permalink}}</a>",
         "url": "{{.Permalink}}",
-        "attributedTo": "https://flear.org/flear",
+        "attributedTo": "{{ .Site.BaseURL }}{{ site.Params.apUser | lower}}",
         "to": "https://www.w3.org/ns/activitystreams#Public",
         "published": {{ dateFormat "2006-01-02T15:04:05-07:00" .Date | jsonify }}
       }
