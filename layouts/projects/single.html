@@ -4,8 +4,9 @@
     <article class='post'>
       {{ partial "post_header_single.html" . }}
       <section class='post-content'>
+        {{ if isset .Params "toc" }}{{ .TableOfContents }}{{ end}}
         {{ .Content }}
-
+        
         {{ partial "article_footer.html" . }}
         {{ partial "article_share.html" . }}
         {{ partial "comments.html" . }}
