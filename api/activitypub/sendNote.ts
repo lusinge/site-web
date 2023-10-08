@@ -66,7 +66,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const followersCollection = db.collection('followers');
   const followersQuerySnapshot = await followersCollection.get();
 
-  let lastSuccessfulSentId = "";
+  let sendingIds = Set();
 
   for (const followerDoc of followersQuerySnapshot.docs) {
     const follower = followerDoc.data();
@@ -96,7 +96,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
           const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
           console.log(`Send result: ${actorInbox}`, response.status, response.statusText, await response.text());
 
-          sentIds.push(item.id)
+          sendingIds.push(item.id)
         }
       }
     } catch (ex) {
@@ -105,7 +105,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
 
   configRef.set({
-    "sentIds": sentIds,
+    "sentIds": sentIds.concat(sendingIds),
     "lastEpoch": new Date().getTime()
   });
 
