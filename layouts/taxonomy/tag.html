@@ -3,13 +3,7 @@
  {{ $paginator := .Paginate .Data.Pages }}
  <div class='row'>
    <div class='col-md-8'>
-     <div class='extra-pagination inner'>
-       <nav class='pagination' role='pagination'>
-         {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}" class="newer-posts">← Newer Posts</a>{{ end }}
-         <span class='page-number'>Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
-         {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}" class="older-posts">Older Posts →</a>{{ end }}
-       </nav>
-     </div>
+     {{ partial "paginator.html" . }}
  {{ range $index, $element := $paginator.Pages }}
 
  <article class='post'>
@@ -49,13 +43,7 @@
 
  {{ end }}
 
- <div class='extra-pagination inner'>
-   <nav class='pagination' role='pagination'>
-     {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}" class="newer-posts">← Newer Posts</a>{{ end }}
-     <span class='page-number'>Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
-     {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}" class="older-posts">Older Posts →</a>{{ end }}
-   </nav>
- </div>
+{{ partial "paginator.html" . }}
 
  </div>
  {{ partial "side_menu_taxonomy.html" . }}
