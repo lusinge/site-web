@@ -39,9 +39,11 @@
   <meta name="twitter:creator" content="@FLEAR_radio">
   {{ if .Title }}
   <meta name="twitter:title" content="{{ .Title }}">
-  <meta name="og:title" content="{{ if .Title }}{{ .Title }}{{else}}{{.Site.Title}}{{end}}">
   {{end}}
+  <meta name="og:title" content="{{ if .Title }}{{ .Title }}{{else}}{{.Site.Title}}{{end}}">
   <meta name="og:url" content="{{ .Permalink | safeURL }}">
+  <meta name="og:site_name" content="FLEAR - Free and Libre Engineers for Amateur Radio">
+  {{ if .Summary }}<meta name="og:description" content="{{ .Summary }}">{{end}}
   <meta name="description" content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}">
   <meta name="twitter:description" content="{{if .Description}}{{ .Description }}{{else}}{{.Site.Params.Description}}{{end}}">
   <script defer src="/_vercel/insights/script.js"></script>
