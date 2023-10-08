@@ -8,9 +8,9 @@ deploy_preview:
     - develop
   script:
     - npm install --global vercel
-    - vercel pull --yes --environment=preview --token="${VERCEL_TOKEN}" -S flear
-    - vercel build --token="${VERCEL_TOKEN}" -S flear
-    - vercel deploy --prebuilt  --token="${VERCEL_TOKEN}" -S flear
+    - vercel pull --yes --environment=preview --token="${VERCEL_TOKEN}" -S "${VERCEL_SCOPE}"
+    - vercel build --token="${VERCEL_TOKEN}" -S "${VERCEL_SCOPE}"
+    - vercel deploy --prebuilt  --token="${VERCEL_TOKEN}" -S "${VERCEL_SCOPE}"
 
 deploy_development:
   stage: deploy
@@ -18,9 +18,9 @@ deploy_development:
     - develop
   script:
     - npm install --global vercel
-    - vercel pull --yes --environment=development --token="${VERCEL_TOKEN}" -S flear
-    - vercel build --token="${VERCEL_TOKEN}" -S flear
-    - vercel deploy --prebuilt  --token="${VERCEL_TOKEN}" -S flear
+    - vercel pull --yes --environment=development --token="${VERCEL_TOKEN}" -S "${VERCEL_SCOPE}"
+    - vercel build --token="${VERCEL_TOKEN}" -S "${VERCEL_SCOPE}"
+    - vercel deploy --prebuilt  --token="${VERCEL_TOKEN}" -S "${VERCEL_SCOPE}"
 
 deploy_production:
   stage: deploy
@@ -28,6 +28,6 @@ deploy_production:
     - master
   script:
     - npm install --global vercel
-    - vercel pull --yes --environment=production --token="${VERCEL_TOKEN}" -S flear
-    - vercel build --prod --token="${VERCEL_TOKEN}" -S flear
-    - vercel deploy --prebuilt --prod --token="${VERCEL_TOKEN}" -S flear
+    - vercel pull --yes --environment=production --token="${VERCEL_TOKEN}" -S "${VERCEL_SCOPE}"
+    - vercel build --prod --token="${VERCEL_TOKEN}" -S "${VERCEL_SCOPE}"
+    - vercel deploy --prebuilt --prod --token="${VERCEL_TOKEN}" -S "${VERCEL_SCOPE}"
