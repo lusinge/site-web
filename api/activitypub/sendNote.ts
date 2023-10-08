@@ -104,8 +104,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     }
   }
 
+  sentIds.push(sendingIds);
   configRef.set({
-    "sentIds": sentIds.concat(sendingIds),
+    "sentIds": sentIds,
     "lastEpoch": new Date().getTime()
   });
 
