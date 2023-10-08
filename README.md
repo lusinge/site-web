@@ -49,5 +49,6 @@ This project (excluding post content itself) is released under the Apache Licens
 * Update robots.txt to point to the full URL of this site
 * Modify vercel.json
 ** Find the line where source is set to "/flear" and update it to point to your apUser name (all lowercase even if variable has case).
+* Go through the /api and manually change references (this step will either be explained later or not needed soon, just a reminder placeholder)
 
 The above steps might be reduced by using template processing on otherwise unprocessed files (normally not part of hugo). See the following for more info https://vercel.com/docs/functions/serverless-functions/runtimes/node-js
