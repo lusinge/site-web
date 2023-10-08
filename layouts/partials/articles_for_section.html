@@ -1,4 +1,4 @@
-{{ $paginator := .Paginate (where .Data.Pages ".Section" .Section) }}
+{{ $paginator := .Paginate .Data.Pages }}
 {{ partial "paginator.html" . }}
 {{ range $index, $element := $paginator.Pages }}
   <article class='post'>
