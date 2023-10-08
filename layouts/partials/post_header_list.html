@@ -1,0 +1,7 @@
+<header class='post-header'>
+  <h2 class='post-title'>
+    <a href="{{ .Permalink }}">{{ .Title}}</a>
+    {{ if .Params.link }} &mdash; <a href="{{.Params.link}}">🔗</a>{{end}}
+  </h2>
+  {{ partial "post_subheader.html" . }}
+</header>

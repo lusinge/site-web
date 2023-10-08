@@ -1,0 +1,23 @@
+<section class='post-meta text-muted'>
+  <ul class='list-inline'>
+    <li>
+      <i class='fa fa-calendar'></i>
+      <time class='post-date' datetime='{{  .Date.Format "2020-09-10" }}'> {{  .Date.Format "January 2 2006" }} </time>
+    </li>
+    <li>
+      <a class='fa-solid fa-book-open' href='{{ .Permalink }}'>
+        <span class='hidden'>Book icon</span>
+      </a>
+      <a href='{{ .Permalink }}'>Reading time: {{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}</a>
+    </li>
+    <li>
+      <i class='fa fa-folder-open'></i>
+      {{ $tags := .Params.tags}}
+      {{ with $tags }}
+        {{ range . }}
+          <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+        {{ end }}
+      {{ end }}
+    </li>
+  </ul>
+</section>
