@@ -96,7 +96,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
           const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
           console.log(`Send result: ${actorInbox}`, response.status, response.statusText, await response.text());
 
-          sendingIds.push(item.id)
+          sendingIds.add(item.id)
         }
       }
     } catch (ex) {
