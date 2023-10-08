@@ -7,20 +7,7 @@
         {{ .Content }}
 
         {{ partial "article_footer.html" . }}
-        <section class='share text-center'>
-          <a class='share-twitter' href='https://twitter.com/intent/tweet?text={{ if .Title }}{{ .Title }}{{else}}{{.Site.Title}}{{end}}amp;url={{ .Permalink }}' onclick='window.open(this.href, &#39;twitter-share&#39;, &#39;width=550,height=235&#39;);return false;' true=''>
-            <span class='fa-stack fa-lg'>
-              <i class='fa fa-circle fa-stack-2x'></i>
-              <i class='fa-brands fa-twitter fa-stack-1x fa-inverse'></i>
-            </span>
-          </a>
-          <a class='share-facebook' href='https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}' onclick='window.open(this.href, &#39;facebook-share&#39;,&#39;width=580,height=296&#39;);return false;' true=''>
-            <span class='fa-stack fa-lg'>
-              <i class='fa fa-circle fa-stack-2x'></i>
-              <i class='fa-brands fa-facebook-f fa-stack-1x fa-inverse'></i>
-            </span>
-          </a>
-        </section>
+        {{ partial "article_share.html" . }}
         {{ partial "comments.html" . }}
       </section>
     </article>
