@@ -1,0 +1,15 @@
+<div class="ForDevelopers">
+  <div class="row code-tabs">
+    <div class="ButtonTabs col col--3">
+      <div class="nav nav-tabs"></div>
+    </div>
+    <div class="col col--9 code-with-header">
+      <div class="code-with-header">
+        <div class="code-header">{{ .Get 0 }}</div>
+        <div class="scrollbar-container tab-content">
+            {{ .Inner }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

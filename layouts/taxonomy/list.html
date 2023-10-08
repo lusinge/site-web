@@ -1,0 +1,49 @@
+{{ partial "top_list_resource.html" . }}
+
+ {{ $paginator := .Paginate .Data.Pages }}
+ <div class='row'>
+   <div class='col-md-8'>
+     <div class='extra-pagination inner'>
+       <nav class='pagination' role='pagination'>
+         {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}" class="newer-posts">← Newer Posts</a>{{ end }}
+         <span class='page-number'>Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
+         {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}" class="older-posts">Older Posts →</a>{{ end }}
+       </nav>
+     </div>
+ {{ range $index, $element := $paginator.Pages }}
+
+ <article class='post'>
+   <header class='post-header'>
+     <h2 class='post-title'>
+       <a href="{{ .Permalink }}">{{ .Title}}</a>
+       {{ if .Params.link }} &mdash; <a href="{{.Params.link}}">🔗</a>{{end}}
+     </h2>
+   </header>
+ </article>
+
+ {{ end }}
+
+ <div class='extra-pagination inner'>
+   <nav class='pagination' role='pagination'>
+     {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}" class="newer-posts">← Newer Posts</a>{{ end }}
+       <span class='page-number'>Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
+     {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}" class="older-posts">Older Posts →</a>{{ end }}
+   </nav>
+ </div>
+
+ </div>
+ <div class='col-md-4'>
+   <nav class='menu tags'>
+     <span class="menu-heading">Categories</span>
+     {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $cnt := .Count }}
+   	  {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
+   		  <a href="{{ .RelPermalink }}" class='menu-item tag' data-slug='{{$name}}' title="All pages with tag <i>{{$name}}</i>">{{$name}} ({{$cnt}})</a>
+   	  {{end}}
+   	{{end}}
+   </nav>
+   <br>
+   {{ partial "microblog.html" . }}
+ </div>
+ </div>
+
+ {{ partial "bottom_list.html" . }}

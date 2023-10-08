@@ -1,0 +1,16 @@
+{
+  "name": "FLEAR - Free & Libre Engineers for Amateur Radio",
+  "short_name": "Modern Web Dev with PK",
+  "description": "The website of FLEAR, Free & Libre Engineers for Amateur Radio.",
+  "start_url": "/?homescreen=1",
+  "theme_color": "#000000",
+  "background_color": "#000000",
+  "icons": [
+    {
+      "sizes": "192x192",
+      "src": "/images/logo.png",
+      "type": "image/png"
+    }
+  ],
+  "display": "standalone"
+}

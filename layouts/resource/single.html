@@ -1,0 +1,68 @@
+{{ partial "top_single.html" . }}
+<div class='row'>
+  <div class='col-md-8'>
+    <article class='post'>
+      <header class='post-header'>
+        <section class='post-meta text-muted'>
+          <ul class='list-inline'>
+            <li>
+              <i class='fa fa-calendar'></i>
+              <time class='post-date' datetime='{{  .Date.Format "2020-09-10" }}'> {{  .Date.Format "January 2 2006" }} </time>
+            </li>
+            <li>
+              <a class='fa-solid fa-book-open' href='{{ .Permalink }}'>
+                <span class='hidden'>Book icon</span>
+              </a>
+              <a href='{{ .Permalink }}'>Reading time: {{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}</a>
+            </li>
+            <li>
+              <i class='fa fa-folder-open'></i>
+              {{ $tags := .Params.tags}}
+              {{ with $tags }}
+                {{ range . }}
+                  <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+                {{ end }}
+              {{ end }}
+            </li>
+          </ul>
+        </section>
+      </header>
+      <section class='post-content'>
+        {{ if isset .Params "toc" }}{{ .TableOfContents }}{{ end}}
+        {{ .Content }}
+        {{ partial "backlinks.html" . }}
+        {{ partial "article_footer.html" . }}
+        <section class='share text-center'>
+          <a class='share-twitter' href='https://twitter.com/intent/tweet?text={{ if .Title }}{{ .Title }}{{else}}{{.Site.Title}}{{end}}amp;url={{ .Permalink }}' onclick='window.open(this.href, &#39;twitter-share&#39;, &#39;width=550,height=235&#39;);return false;' true=''>
+            <span class='fa-stack fa-lg'>
+              <i class='fa fa-circle fa-stack-2x'></i>
+              <i class='fa-brands fa-twitter fa-stack-1x fa-inverse'></i>
+            </span>
+          </a>
+          <a class='share-facebook' href='https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}' onclick='window.open(this.href, &#39;facebook-share&#39;,&#39;width=580,height=296&#39;);return false;' true=''>
+            <span class='fa-stack fa-lg'>
+              <i class='fa fa-circle fa-stack-2x'></i>
+              <i class='fa-brands fa-facebook-f fa-stack-1x fa-inverse'></i>
+            </span>
+          </a>
+        </section>
+        {{ partial "comments.html" . }}
+      </section>
+    </article>
+  </div>
+  <div class='col-md-4'>
+    <nav class='menu tags'>
+      <span class="menu-heading">Recent Resource Posts</span>
+      <a class='menu-item' data-slug='all' href='/resource'>All posts</a>
+      {{ $hereLink := .Permalink }}
+      {{ range (where .Site.Pages "Section" "resource") }}
+         {{ range .Pages }}
+            <a href='{{ .RelPermalink }}' class='menu-item tag{{ if (eq .Permalink $hereLink) }} selected{{ end }}' data-slug='{{ .Title}}' title="{{ .Title}}">{{ .Title}}</a>
+         {{ end }}
+      {{ end }}
+    </nav>
+    <br>
+    {{ partial "microblog.html" . }}
+  </div>
+</div>
+{{ partial "bottom_single.html" . }}

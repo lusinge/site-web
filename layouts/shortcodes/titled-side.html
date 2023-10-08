@@ -1,0 +1,17 @@
+<header class="hero heroBanner_2Ftp">
+  <div class="container">
+    <div class="row">
+      <div class="col col--5">
+        <h2 class="hero__title">{{ .Get 0 }}</h2>
+        <p class="hero__subtitle">{{ .Get 1 }}</p>
+        <div>
+          <a class="button hero--button button--md button--secondary button--outline responsive-button button_2W20" style="margin-left:0;margin-top:10px" href="{{ .Get 3 }}">{{ .Get 2 }}</a>
+          <a class="button hero--button button--md button--primary responsive-button button_2W20" to="https://git.qoto.org/goblin-ogm/goblin" style="margin-top:10px" href="{{ .Get 5 }}">{{ .Get 4 }}</a>
+        </div>
+      </div>
+      <div class="col col--7">
+        {{ .Inner }}
+      </div>
+    </div>
+  </div>
+</header>

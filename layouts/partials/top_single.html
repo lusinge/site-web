@@ -1,0 +1,17 @@
+{{ partial "head.html" . }}
+<body class="single">
+  <div>
+    {{ partial "menu.html" . }}
+    <div class="main-wrapper">
+      <header class='subheader'>
+        <div class='container'>
+          <h2 class='page-title'>
+            <small>
+              <a href='javascript:history.back()'>
+                <i class='fa fa-chevron-left'></i>
+              </a>
+            </small> {{ if .Title }}{{ .Title }}{{else}}{{.Site.Title}}{{end}}
+          </h2>
+        </div>
+      </header>
+      <main class="hfeed container" id="content" role="main">

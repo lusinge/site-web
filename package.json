@@ -1,0 +1,32 @@
+{
+  "name": "flear.org",
+  "description": "FLEAR (Free and Libre Engineers for Amateur Radio)",
+  "dependencies": {
+    "@firebase/app-types": "^0.9.0",
+    "@polymath-ai/client": "*",
+    "@polymath-ai/host": "*",
+    "@vercel/analytics": "^1.0.2",
+    "@vercel/edge": "^1.1.0",
+    "@vercel/node": "^3.0.7",
+    "@vercel/og": "^0.5.17",
+    "activitypub-core-types": "^0.3.2",
+    "ava": "^5.3.1",
+    "file-drop-element": "^1.0.1",
+    "firebase-admin": "^11.11.0",
+    "hugo-bin": "^0.115.0",
+    "multiparty": "^4.2.3",
+    "node-fetch": "^3.3.2",
+    "pinch-zoom-element": "^1.1.1",
+    "uuid": "^9.0.1",
+    "vercel": "^32.4.1",
+    "whatwg-flora-tmpl": "^1.0.3"
+  },
+  "engines": {
+    "node": ">= 18.0.0"
+  },
+  "devDependencies": {
+    "@types/multiparty": "^0.0.34",
+    "typescript": "^5.2.2"
+  },
+  "type": "module"
+}

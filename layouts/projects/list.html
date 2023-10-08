@@ -1,0 +1,91 @@
+{{ partial "top_list_projects.html" . }}
+
+{{ $paginator := .Paginate (where .Data.Pages ".Section" "projects") }}
+<div class='row'>
+  <div class='col-md-8'>
+    <div class='extra-pagination inner'>
+      <nav class='pagination' role='pagination'>
+        {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}" class="newer-posts">← Newer Posts</a>{{ end }}
+        <span class='page-number'>Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
+        {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}" class="older-posts">Older Posts →</a>{{ end }}
+      </nav>
+    </div>
+{{ range $index, $element := $paginator.Pages }}
+
+<article class='post'>
+  <header class='post-header'>
+    <h2 class='post-title'>
+      <a href="{{ .Permalink }}">{{ .Title}}</a>
+      {{ if .Params.link }} &mdash; <a href="{{.Params.link}}">🔗</a>{{end}}
+    </h2>
+    <section class='post-meta text-muted'>
+      <ul class='list-inline'>
+        <li>
+          <i class='fa fa-calendar'></i>
+          <time class='post-date' datetime='{{  .Date.Format "2020-09-10" }}'> {{  .Date.Format "January 2 2006" }} </time>
+        </li>
+        <li>
+          <a class='fa-solid fa-book-open' href='{{ .Permalink }}'>
+            <span class='hidden'>Book icon</span>
+          </a>
+          <a href='{{ .Permalink }}'>Reading time: {{ .ReadingTime }} minute{{ if (ne .ReadingTime 1) }}s{{ end }}</a>
+        </li>
+        <li>
+          <i class='fa fa-folder-open'></i>
+          {{ $tags := .Params.tags}}
+          {{ with $tags }}
+            {{ range . }}
+              <a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a>
+            {{ end }}
+          {{ end }}
+        </li>
+      </ul>
+    </section>
+  </header>
+  <section class='post-content'>
+    {{.Content }}
+  </section>
+</article>
+
+{{ end }}
+
+<div class='extra-pagination inner'>
+  <nav class='pagination' role='pagination'>
+    {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}" class="newer-posts">← Newer Posts</a>{{ end }}
+    <span class='page-number'>Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
+    {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}" class="older-posts">Older Posts →</a>{{ end }}
+  </nav>
+</div>
+
+</div>
+<div class='col-md-4'>
+  <nav class='menu tags'>
+    <span class="menu-heading">Project Categories</span>
+    <a class='menu-item selected' data-slug='all' href='/projects'>All posts</a>
+    {{ $hereSection := .Section }}
+    {{/* Get current taxonomy (example: tags, categories). */}}
+    <!-- {{ $taxonomy := .Data.Plural }} -->
+    {{ $taxonomy := "tags" }}
+    {{/* Get sections where one or more pages has one or more terms in the current taxonomy. */}}
+    {{ $sections := slice }}
+    {{ range $term, $weightedPages := index site.Taxonomies $taxonomy }}
+      {{ range $weightedPages }}
+        {{ $sections = $sections | append .CurrentSection | uniq | sort }}
+      {{ end }}
+    {{ end }}
+    {{/* List pages by term by section. */}}
+    {{ range $section := (where $sections ".Path" $hereSection) }}
+      {{ range $term, $weightedPages := index site.Taxonomies $taxonomy }}
+        {{ $termPage := site.GetPage path.Join $taxonomy $term }}
+        {{ with where $weightedPages "Section" $section.Path }}
+          <a href="{{ $termPage.RelPermalink }}" class='menu-item tag' data-slug='{{ $termPage.LinkTitle }}' title="All pages with tag <i>{{ $termPage.LinkTitle }}</i>">{{ $termPage.LinkTitle }}</a>
+        {{ end }}
+      {{ end }}
+    {{ end }}
+  </nav>
+  <br>
+  {{ partial "microblog.html" . }}
+</div>
+</div>
+
+{{ partial "bottom_list.html" . }}
