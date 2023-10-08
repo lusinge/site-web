@@ -17,12 +17,12 @@ limit = 50
 post = "/:title/"
 
 [author]
-name = "FLEAR"
-email = "flear@flear.org"
+name = "Jeffrey Phillips Freeman"
+email = "the@jeffreyfreeman.me"
 
 [params]
-author = "FLEAR"
-description = "Free and Libre Engineers for Amateur Radio"
+author = "Jeffrey Phillips Freeman"
+description = "FLEAR - Free and Libre Engineers for Amateur Radio"
 analyticsid = "UA-114468-20"
 
 [taxonimies]
