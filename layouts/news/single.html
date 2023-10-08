@@ -49,19 +49,6 @@
       </section>
     </article>
   </div>
-  <div class='col-md-4'>
-    <nav class='menu tags'>
-      <span class="menu-heading">Recent News Posts</span>
-      <a class='menu-item' data-slug='all' href='/news'>All posts</a>
-      {{ $hereLink := .Permalink }}
-      {{ range (where .Site.Pages "Section" "news") }}
-         {{ range .Pages }}
-            <a href='{{ .RelPermalink }}' class='menu-item tag{{ if (eq .Permalink $hereLink) }} selected{{ end }}' data-slug='{{ .Title}}' title="{{ .Title}}">{{ .Title}}</a>
-         {{ end }}
-      {{ end }}
-    </nav>
-    <br>
-    {{ partial "microblog.html" . }}
-  </div>
+  {{ partial "side_menu_single.html" . }}
 </div>
 {{ partial "bottom_single.html" . }}

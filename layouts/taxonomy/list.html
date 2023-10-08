@@ -32,18 +32,7 @@
  </div>
 
  </div>
- <div class='col-md-4'>
-   <nav class='menu tags'>
-     <span class="menu-heading">Categories</span>
-     {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $cnt := .Count }}
-   	  {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
-   		  <a href="{{ .RelPermalink }}" class='menu-item tag' data-slug='{{$name}}' title="All pages with tag <i>{{$name}}</i>">{{$name}} ({{$cnt}})</a>
-   	  {{end}}
-   	{{end}}
-   </nav>
-   <br>
-   {{ partial "microblog.html" . }}
- </div>
+ {{ partial "side_menu_taxonomy.html" . }}
  </div>
 
  {{ partial "bottom_list.html" . }}

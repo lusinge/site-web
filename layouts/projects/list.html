@@ -58,34 +58,7 @@
 </div>
 
 </div>
-<div class='col-md-4'>
-  <nav class='menu tags'>
-    <span class="menu-heading">Project Categories</span>
-    <a class='menu-item selected' data-slug='all' href='/projects'>All posts</a>
-    {{ $hereSection := .Section }}
-    {{/* Get current taxonomy (example: tags, categories). */}}
-    <!-- {{ $taxonomy := .Data.Plural }} -->
-    {{ $taxonomy := "tags" }}
-    {{/* Get sections where one or more pages has one or more terms in the current taxonomy. */}}
-    {{ $sections := slice }}
-    {{ range $term, $weightedPages := index site.Taxonomies $taxonomy }}
-      {{ range $weightedPages }}
-        {{ $sections = $sections | append .CurrentSection | uniq | sort }}
-      {{ end }}
-    {{ end }}
-    {{/* List pages by term by section. */}}
-    {{ range $section := (where $sections ".Path" $hereSection) }}
-      {{ range $term, $weightedPages := index site.Taxonomies $taxonomy }}
-        {{ $termPage := site.GetPage path.Join $taxonomy $term }}
-        {{ with where $weightedPages "Section" $section.Path }}
-          <a href="{{ $termPage.RelPermalink }}" class='menu-item tag' data-slug='{{ $termPage.LinkTitle }}' title="All pages with tag <i>{{ $termPage.LinkTitle }}</i>">{{ $termPage.LinkTitle }}</a>
-        {{ end }}
-      {{ end }}
-    {{ end }}
-  </nav>
-  <br>
-  {{ partial "microblog.html" . }}
-</div>
+{{ partial "side_menu_list.html" . }}
 </div>
 
 {{ partial "bottom_list.html" . }}
