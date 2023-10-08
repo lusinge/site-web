@@ -1,6 +1,6 @@
 {
   "name": "FLEAR - Free & Libre Engineers for Amateur Radio",
-  "short_name": FLEAR",
+  "short_name": "FLEAR",
   "description": "The website of FLEAR, Free & Libre Engineers for Amateur Radio.",
   "start_url": "/?homescreen=1",
   "theme_color": "#000000",
