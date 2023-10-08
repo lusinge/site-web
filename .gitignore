@@ -12,14 +12,8 @@ static/images/twitter-*
 dist
 hugo
 sass.old
-source.old
-source/_site
-source/_stash
-source/stylesheets/screen.css
-vendor
-node_modules
+vendor/
+node_modules/
 resources/
-.vercel
+.vercel/
 auth.json
-content/en/2019-10-20-podroll.markdown
-static/javascripts/comlink
