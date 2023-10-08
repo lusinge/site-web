@@ -66,7 +66,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const followersCollection = db.collection('followers');
   const followersQuerySnapshot = await followersCollection.get();
 
-  let sendingIds = Set();
+  let sendingIds = new Set();
 
   for (const followerDoc of followersQuerySnapshot.docs) {
     const follower = followerDoc.data();
