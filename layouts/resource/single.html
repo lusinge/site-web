@@ -1,18 +1,3 @@
 {{ partial "top_single.html" . }}
-<div class='row'>
-  <div class='col-md-8'>
-    <article class='post'>
-      {{ partial "post_header_single.html" . }}
-      <section class='post-content'>
-        {{ if isset .Params "toc" }}{{ .TableOfContents }}{{ end}}
-        {{ .Content }}
-        {{ partial "backlinks.html" . }}
-        {{ partial "article_footer.html" . }}
-        {{ partial "article_share.html" . }}
-        {{ partial "comments.html" . }}
-      </section>
-    </article>
-  </div>
-  {{ partial "side_menu_single.html" . }}
-</div>
+{{ partial "body_single.html" . }}
 {{ partial "bottom_single.html" . }}
