@@ -27,6 +27,10 @@
 
   {{if .Params.image_header}}
     <meta name="twitter:image" content="{{.Params.image_header}}">
+    <meta property="og:image" content="{{.Params.image_header}}">
+  {{ else if .IsHome }}
+    <meta name="twitter:image" content="/images/logo-header-light.png">
+    <meta property="og:image" content="/images/logo-header-light.png">
   {{else}}
     {{ $tags := .Params.tags}}
     {{ if .Params.social_image_url }}
@@ -65,9 +69,9 @@
     <meta name="description" content="{{ .Site.Params.Description }}">
     <meta name="twitter:description" content="{{ .Site.Params.Description }}">
   {{else}}
-    <meta name="og:description" content="FLEAR, An open-source and open-standards incubator for Ham Radio">
-    <meta name="description" content="FLEAR, An open-source and open-standards incubator for Ham Radio">
-    <meta name="twitter:description" content="FLEAR, An open-source and open-standards incubator for Ham Radio">
+    <meta name="og:description" content="FLEAR is an open-source and open-standards incubator for Ham Radio">
+    <meta name="description" content="FLEAR is an open-source and open-standards incubator for Ham Radio">
+    <meta name="twitter:description" content="FLEAR is an open-source and open-standards incubator for Ham Radio">
   {{end}}
 
   <script defer src="/_vercel/insights/script.js"></script>
