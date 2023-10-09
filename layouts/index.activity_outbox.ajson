@@ -15,8 +15,7 @@
   "id": "{{ $.Site.BaseURL }}outbox",
   "summary": "{{$.Site.Author.name}} - {{$.Site.Title}}",
   "type": "OrderedCollection",
-  {{ $notdrafts := where $pages ".Draft" "!=" true }}
-  {{ $all :=  where $notdrafts "Type" "in" (slice "resource" "post" "page")}}
+  {{ $all := where $pages ".Draft" "!=" true }}
   "totalItems": {{(len $all)}},
   "orderedItems": [
   {{ range $index, $element := $all  }}
