@@ -62,7 +62,7 @@
     }
   ],
   "functions": {
-    "api/activitypub/sendNote": {
+    "activitypub/sendNote": {
       "maxDuration": 300
     }
   },
