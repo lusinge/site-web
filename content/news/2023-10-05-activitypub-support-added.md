@@ -3,7 +3,7 @@ slug: activitypub-support-added
 date: '2023-10-05T22:36:20.122Z'
 title: ActivityPub Support Added
 tags:
-- administration
+- Administration
 draft: false
 ---
 

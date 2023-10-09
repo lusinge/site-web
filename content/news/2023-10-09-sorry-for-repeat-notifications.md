@@ -3,7 +3,7 @@ slug: sorry-for-repeat-notifications
 date: '2023-10-09T17:55:01Z'
 title: Sorry for the recent repeat notifications
 tags:
-- administration
+- Administration
 draft: false
 ---
 
