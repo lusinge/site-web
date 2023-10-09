@@ -103,9 +103,13 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     }
   }
 
-  sendingIds.add(...sentIds);
+  if( sentIds.size > 0 ) {
+    sendingIds.add(...sentIds);
+  }
   const newSentIds = [];
-  newSentIds.push(...sendingIds);
+  if( sendingIds.size > 0 ) {
+    newSentIds.push(...sendingIds);
+  }
   configRef.set({
     "sentIds": newSentIds,
     "lastEpoch": new Date().getTime()
