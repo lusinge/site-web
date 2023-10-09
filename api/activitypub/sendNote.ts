@@ -103,7 +103,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     }
   }
 
-  if( sentIds.size > 0 ) {
+  if( sentIds.length > 0 ) {
     sendingIds.add(...sentIds);
   }
   const newSentIds = [];
