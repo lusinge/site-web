@@ -94,9 +94,8 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
           // Item will be an entity, i.e, { Create { Note } }
           const response = await sendSignedRequest(actorInbox, <AP.Activity> item);
-          console.log(`Send result: ${actorInbox}`, response.status, response.statusText, await response.text());
-
           sendingIds.add(item.id)
+          console.log(`Send result: ${actorInbox}`, response.status, response.statusText, await response.text());
         }
       }
     } catch (ex) {
@@ -104,6 +103,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     }
   }
 
+  console.log("loop exited")
   console.log(`adding sentIds to sendingIds: ${sendingIds}`, ...sentIds);
   sendingIds.add(...sentIds);
   console.log(`added sentIds: ${sendingIds}`)
