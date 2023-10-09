@@ -28,22 +28,35 @@
       "object": {
         "id": "{{ .Permalink }}",
         "type": "Note",
-        "content": {{ printf "\"" | safeHTML }}<b>{{.Title}}</b>{{ if .Summary }}<br>{{ replace (replace .Summary "\n" "<br>") "\r" "" }}{{ end }}<br><br>Read more here:<br><a href='{{.Permalink}}'>{{.Permalink}}</a>{{ printf "\"" | safeHTML }},
+        "content": {{ printf "\"" | safeHTML }}<b>{{.Title}}</b>{{ if .Summary }}<br>{{ replace (replace .Summary "\n" "<br>") "\r" "" }}{{ end }}<br><br>Read more here:<br><a href='{{.Permalink}}'>{{.Permalink}}</a>{{ if .Site.Params.renderArticleHashtags }}{{ if .Params.tags }}<br>{{ range $indexArticleTags, $elementArticleTag := .Params.tags }}{{ if ne $indexArticleTags 0 }} {{ end }}<a href='{{ site.BaseURL }}tags/{{ $elementArticleTag }}' class='mention hashtag' rel='tag'>#<span>{{ $elementArticleTag }}</span></a>{{ end }}{{ end }}{{ end }}{{ if .Site.Params.renderDefaultHashtags }}{{ if .Site.Params.postHashtags }}{{ range $indexTags, $elementTag := .Site.Params.postHashtags }}{{ if ne $indexTags 0 }} {{ end }}#{{ $elementTag }}{{ end }}{{ end }}{{ end }}{{ printf "\"" | safeHTML }},
         "url": "{{.Permalink}}",
         "attributedTo": "{{ .Site.BaseURL }}{{ site.Params.apUser | lower}}",
         "to": "https://www.w3.org/ns/activitystreams#Public",
-        {{ if .Site.Params.postHashtags }}
+        {{ if (or (and .Site.Params.postHashtags .Site.Params.renderDefaultHashtags) (and .Params.tags .Site.Params.renderArticleHashtags)) }}
         "tag": [
-          {{ range $indexTags, $elementTag := .Site.Params.postHashtags }}
-          {{ if ne $indexTags 0 }}, {{ end }}
+          {{- if (and .Site.Params.postHashtags .Site.Params.renderDefaultHashtags) }}
+          {{- range $indexTags, $elementTag := .Site.Params.postHashtags }}
+          {{- if ne $indexTags 0 }}, {{ end }}
           {
             "type": "Hashtag",
             "href": "https://qoto.org/tags/{{ $elementTag }}",
             "name": "#{{ $elementTag }}"
           }
-          {{ end }}
+          {{- end }}
+          {{- end }}
+          {{- $hasTagContent := (and .Site.Params.postHashtags .Site.Params.renderDefaultHashtags) }}
+          {{- if (and .Params.tags .Site.Params.renderArticleHashtags) }}
+          {{- range $indexTags, $elementTag := .Params.tags }}
+          {{- if (or (ne $indexTags 0) $hasTagContent) }}, {{ end }}
+          {
+            "type": "Hashtag",
+            "href": "https://qoto.org/tags/{{ $elementTag }}",
+            "name": "#{{ $elementTag }}"
+          }
+          {{- end }}
+          {{- end }}
           ],
-        {{ end }}
+        {{- end }}
         "published": {{ dateFormat "2006-01-02T15:04:05-07:00" .Date | jsonify }}
       }
     }
