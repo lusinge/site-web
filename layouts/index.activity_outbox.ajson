@@ -28,7 +28,7 @@
       "object": {
         "id": "{{ .Permalink }}",
         "type": "Note",
-        "content": {{ printf "\"" | safeHTML }}{{.Title}}{{ if .Summary }}<br>{{ replace (replace .Summary "\n" "<br>") "\r" "" }}{{ end }}<br><a href='{{.Permalink}}'>{{.Permalink}}</a>{{ printf "\"" | safeHTML }},
+        "content": {{ printf "\"" | safeHTML }}<b>{{.Title}}</b>{{ if .Summary }}<br>{{ replace (replace .Summary "\n" "<br>") "\r" "" }}{{ end }}<br><br>Read more here:<br><a href='{{.Permalink}}'>{{.Permalink}}</a>{{ printf "\"" | safeHTML }},
         "url": "{{.Permalink}}",
         "attributedTo": "{{ .Site.BaseURL }}{{ site.Params.apUser | lower}}",
         "to": "https://www.w3.org/ns/activitystreams#Public",
