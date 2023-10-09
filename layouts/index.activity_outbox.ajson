@@ -28,7 +28,7 @@
       "object": {
         "id": "{{ .Permalink }}",
         "type": "Note",
-        "content": "{{.Title}}<br><a href='{{.Permalink}}'>{{.Permalink}}</a>",
+        "content": "{{.Title}}{{ if .Summary }}<br>{{ .Summary }}{{ end }}<br><a href='{{.Permalink}}'>{{.Permalink}}</a>",
         "url": "{{.Permalink}}",
         "attributedTo": "{{ .Site.BaseURL }}{{ site.Params.apUser | lower}}",
         "to": "https://www.w3.org/ns/activitystreams#Public",
