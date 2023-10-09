@@ -20,7 +20,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
 
   const output = {
     "@context": "https://www.w3.org/ns/activitystreams",
-    "id": `${process.env.ACTIVITYPUB_URL}/users/${process.env.ACTIVITYPUB_USER.toLowerCase}/following?page=1`,
+    "id": `${process.env.ACTIVITYPUB_URL}users/${process.env.ACTIVITYPUB_USER.toLowerCase}/following?page=1`,
     "type": "OrderedCollectionPage",
     "totalItems": actors.docs.length,
     "orderedItems": actors.docs.map(item=>item.get("actor"))
