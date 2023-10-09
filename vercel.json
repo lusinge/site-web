@@ -62,7 +62,7 @@
     }
   ],
   "functions": {
-    "activitypub/sendNote": {
+    "send-note": {
       "maxDuration": 300
     }
   },
