@@ -106,7 +106,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   console.log("loop exited")
   console.log(`adding sentIds to sendingIds: ${sendingIds}`, ...sentIds);
   sendingIds.add(...sentIds);
-  console.log(`added sentIds: ${sendingIds}`)
+  console.log(`added sentIds: ${Array.from(sendingIds)}`)
   configRef.set({
     "sentIds": Array.from(sendingIds),
     "lastEpoch": new Date().getTime()
