@@ -62,7 +62,10 @@
     }
   ],
   "functions": {
-    "send-note": {
+    "**/*": {
+      "maxDuration": 300
+    },
+    "*": {
       "maxDuration": 300
     }
   },
