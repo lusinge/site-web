@@ -65,6 +65,7 @@
     "/api/activitypub/sendNote.js": {
       "maxDuration": 300
     },
+  },
   "headers": [
     {
       "source": "/(.*).ajson",
