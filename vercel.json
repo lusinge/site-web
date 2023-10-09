@@ -64,9 +64,6 @@
   "functions": {
     "**/*": {
       "maxDuration": 300
-    },
-    "*": {
-      "maxDuration": 300
     }
   },
   "headers": [
