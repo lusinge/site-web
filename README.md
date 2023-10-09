@@ -38,6 +38,8 @@ This project (excluding post content itself) is released under the Apache Licens
 ** FIREBASE_PRIVATE_KEY
 ** FIREBASE_CLIENT_EMAIL
 ** NEXT_PUBLIC_FIREBASE_PROJECT_ID
+** ACTIVITYPUB_URL
+** ACTIVITYPUB_USER
 * Modify /layouts/partials/top_list_* to represent the section titles you want to use.
 * Update package.json
 ** Update name field
