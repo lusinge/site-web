@@ -1,6 +1,6 @@
 ---
 slug: added-activity-pub-tag-support
-date: '2023-10-09T19:28:38+00:00Z'
+date: '2023-10-09T19:28:38Z'
 title: Added support for tags in ActivityPub
 tags:
 - Administration
