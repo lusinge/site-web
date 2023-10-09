@@ -104,7 +104,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     }
   }
 
+  console.log(`adding sentIds to sendingIds: ${sendingIds}`, ...sentIds);
   sendingIds.add(...sentIds);
+  console.log(`added sentIds: ${sendingIds}`)
   configRef.set({
     "sentIds": Array.from(sendingIds),
     "lastEpoch": new Date().getTime()
