@@ -39,7 +39,7 @@
           {{- if ne $indexTags 0 }}, {{ end }}
           {
             "type": "Hashtag",
-            "href": "https://qoto.org/tags/{{ $elementTag }}",
+            "href": "{{ site.BaseURL | safeHTML }}tags/{{ $elementTag | lower }}",
             "name": "#{{ $elementTag }}"
           }
           {{- end }}
@@ -50,7 +50,7 @@
           {{- if (or (ne $indexTags 0) $hasTagContent) }}, {{ end }}
           {
             "type": "Hashtag",
-            "href": "https://qoto.org/tags/{{ $elementTag }}",
+            "href": "{{ site.BaseURL | safeHTML }}tags/{{ $elementTag | lower }}",
             "name": "#{{ $elementTag }}"
           }
           {{- end }}
