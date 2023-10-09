@@ -47,7 +47,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const configData = config.data();
   let sentIds = [];
   if (configData != undefined) {
-    let sentIds = configData.sentIds);
+    sentIds.push(...configData.sentIds);
     let lastEpoch = configData.lastEpoch;
     let currentEpoch = new Date().getTime();
     let elapsed = currentEpoch - lastEpoch;
@@ -84,7 +84,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         // We have to break somewhere... do it after the first.
         const item = (<AP.EntityReference[]>outbox.orderedItems)[iteIdx];
         console.log(`Checking ID ${item.id}, ${sentIds}`);
-        if (!sentIds.includes(item.id)) {
+        if (item.id != undefined && !sentIds.includes(item.id)) {
           if (item.object != undefined) {
             // We might not need this.
             item.object.published = (new Date()).toISOString();
@@ -105,11 +105,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
 
   console.log("loop exited")
-  console.log(`adding sentIds to sendingIds: ${sendingIds}`, ...sentIds);
-  sendingIds.add(...sentIds);
-  console.log(`added sentIds: ${Array.from(sendingIds)}`)
+  console.log(`adding sentIds and sendingIds: ${sendingIds} | `, ...sentIds);
+  sentIds.push(...sendingIds)
+  console.log(`added sentIds: ${sentIds}`)
   configRef.set({
-    "sentIds": Array.from(sendingIds),
+    "sentIds": sentIds,
     "lastEpoch": new Date().getTime()
   });
 
