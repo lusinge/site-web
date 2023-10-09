@@ -28,3 +28,4 @@ secondaryApUser="FLEAR"
 repoUrl="https://git.qoto.org/flear"
 siteRepoUrl="https://git.qoto.org/flear/flear-site"
 siteEmail="flear@flear.org"
+postHashtags=["HamRadio", "AmateurRadio", "Ham", "RF", "ElectricalEngineering", "EE"]
