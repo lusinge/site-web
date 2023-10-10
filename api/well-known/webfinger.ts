@@ -12,15 +12,15 @@ export default function (req: VercelRequest, res: VercelResponse) {
     apAlias = ""
   }
   res.end(`{
-    "subject": `acct:${process.env.ACTIVITYPUB_USER.toLowerCase()}@${apDomain}`,
+    "subject": \"acct:${process.env.ACTIVITYPUB_USER.toLowerCase()}@${apDomain}\",
     "aliases": [
-      `${apAlias}`
+      \"${apAlias}\"
     ],
     "links": [
       {
         "rel": "self",
         "type": "application/activity+json",
-        "href": `${process.env.ACTIVITYPUB_URL}${process.env.ACTIVITYPUB_USER.toLowerCase()}`
+        "href": \"${process.env.ACTIVITYPUB_URL}${process.env.ACTIVITYPUB_USER.toLowerCase()}\"
       }
     ]
   }`);
