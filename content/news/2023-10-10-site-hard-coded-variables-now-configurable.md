@@ -1,7 +1,7 @@
 ---
 slug: site-hard-coded-variables-now-configurable
-date: '2023-10-10T02:26:48Z'
-title: The Site's Hard Coded Variables are Now Configurable
+date: '2023-10-10T02:30:48Z'
+title: Site's Hard Coded Variables are Now Configurable
 tags:
 - Administration
 - ActivityPub
