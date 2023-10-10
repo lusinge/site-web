@@ -40,8 +40,7 @@ This project (excluding post content itself) is released under the Apache Licens
 ** NEXT_PUBLIC_FIREBASE_PROJECT_ID
 ** ACTIVITYPUB_URL
 ** ACTIVITYPUB_USER
-** ACTIVITYPUB_URL_ALIAS
-** ACTIVITYPUB_USER_ALIAS
+** ACTIVITYPUB_ALIAS (optional)
 ** ACTIVITYPUB_NAME
 ** ACTIVITYPUB_SUMMARY
 * Modify /layouts/partials/top_list_* to represent the section titles you want to use.
