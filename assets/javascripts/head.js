@@ -52,7 +52,7 @@ window.addEventListener("load", function () {
           function (error) { ga('send', 'event', 'share', 'error', error); });
       } else {
         var windowOptions = 'scrollbars=yes,resizable=yes,toolbar=no,location=yes,width=520,height=420';
-        var twitterUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + '&url=' + encodeURIComponent(shareUrl) + '&via=FLEAR';
+        var twitterUrl = 'https://twitter.com/intent/tweet?text=' + encodeURIComponent(shareTitle) + '&url=' + encodeURIComponent(shareUrl);
         window.open(twitterUrl, 'intent', windowOptions);
       }
     });

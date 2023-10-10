@@ -58,3 +58,5 @@ This project (excluding post content itself) is released under the Apache Licens
 
 The above steps might be reduced by using template processing on otherwise unprocessed files (normally not part of hugo). See the following for more info https://vercel.com/docs/functions/serverless-functions/runtimes/node-js
 NOTE: Once we move the project over to a dedicated git, change the node info under api and track the version
+NOTE: And the source link in the footer
+NOTE: And package.json
