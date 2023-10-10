@@ -23,6 +23,8 @@ tag = "tags"
 suffixes = ["js", "mjs"]
 [mediaTypes."application/activity+json"]
 suffixes = ["ajson"]
+[mediaTypes."application/json"]
+suffixes = ["json"]
 
 [outputFormats]
 [outputFormats.ACTIVITY]
@@ -33,9 +35,13 @@ baseName = "activity"
 mediaType = "application/activity+json"
 notAlternative = true
 baseName = "outbox"
+[outputFormats.MANIFEST]
+mediaType = "application/json"
+notAlternative = true
+baseName = "manifest"
 
 [outputs]
-home = ["HTML", "RSS", "ACTIVITY", "ACTIVITY_OUTBOX"]
+home = ["HTML", "RSS", "ACTIVITY", "ACTIVITY_OUTBOX", "MANIFEST"]
 section = ["HTML", "RSS"]
 page = ["HTML"]
 
