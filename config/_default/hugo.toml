@@ -63,7 +63,7 @@ typographer = false
 unsafe = true
 
 [security.funcs]
-getenv = ['^HUGO_', '^CI$', '^ACTIPAGE_']
+getenv = ['^HUGO_', '^CI$']
 
 [params]
 siteAuthor="Jeffrey Phillips Freeman"
