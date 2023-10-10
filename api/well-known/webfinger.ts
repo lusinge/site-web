@@ -6,15 +6,15 @@ export default function (req: VercelRequest, res: VercelResponse) {
   res.setHeader("Content-Type", `application/jrd+json`);
   const apDomain = (new URL(`${process.env.ACTIVITYPUB_URL}`)).hostname;
   let apAlias;
-  if( process.env.ACTIVITYPUB_URL_ALIAS && process.env.ACTIVITYPUB_USER_ALIAS ) {
-    apAlias = `${process.env.ACTIVITYPUB_ALIAS}`;
+  if( process.env.ACTIVITYPUB_ALIAS ) {
+    apAlias = `\"${process.env.ACTIVITYPUB_ALIAS}\"`;
   } else {
     apAlias = ""
   }
   res.end(`{
     "subject": \"acct:${process.env.ACTIVITYPUB_USER.toLowerCase()}@${apDomain}\",
     "aliases": [
-      \"${apAlias}\"
+      ${apAlias}
     ],
     "links": [
       {
