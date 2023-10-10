@@ -6,7 +6,7 @@ export default function (req: VercelRequest, res: VercelResponse) {
   if ("accept" in headers) {
     const accept = headers["accept"];
     if (accept != null && accept.split(",").indexOf("text/html") > -1) {
-      return res.redirect(302, "https://flear.org/").end();
+      return res.redirect(302,  `${process.env.ACTIVITYPUB_URL}`).end();
     }
   }
 
@@ -15,24 +15,24 @@ export default function (req: VercelRequest, res: VercelResponse) {
   res.json({
     "@context": ["https://www.w3.org/ns/activitystreams", { "@language": "en- GB" }],
     "type": "Person",
-    "id": "https://flear.org/flear",
-    "outbox": "https://flear.org/outbox",
-    "following": "https://flear.org/following",
-    "followers": "https://flear.org/followers",
-    "inbox": "https://flear.org/inbox",
-    "preferredUsername": "flear",
-    "name": "FLEAR (Free & Libre Engineers for Amateur Radio)",
-    "summary": "FLEAR is non-profit promoting open-source and open-standards in Amateur Radio",
+    "id": `${process.env.ACTIVITYPUB_URL}${process.env.ACTIVITYPUB_USER.toLowerCase()}`,
+    "outbox": `${process.env.ACTIVITYPUB_URL}outbox`,
+    "following": `${process.env.ACTIVITYPUB_URL}following`,
+    "followers": `${process.env.ACTIVITYPUB_URL}followers`,
+    "inbox": `${process.env.ACTIVITYPUB_URL}inbox`,
+    "preferredUsername": `${process.env.ACTIVITYPUB_USER.toLowerCase()}`,
+    "name": `${process.env.ACTIVITYPUB_NAME}`,
+    "summary": `${process.env.ACTIVITYPUB_SUMMARY}`,
     "icon": {
       "type": "Image",
       "mediaType": "image/png",
-      "url": "https://flear.org/images/logo.png"
+      "url": `${process.env.ACTIVITYPUB_URL}images/logo.png`
     },
     "publicKey": {
       "@context": "https://w3id.org/security/v1",
       "@type": "Key",
-      "id": "https://flear.org/flear#main-key",
-      "owner": "https://flear.org/flear",
+      "id": `${process.env.ACTIVITYPUB_URL}${process.env.ACTIVITYPUB_USER.toLowerCase()}#main-key`,
+      "owner": `${process.env.ACTIVITYPUB_URL}${process.env.ACTIVITYPUB_USER.toLowerCase()}`,
       "publicKeyPem": process.env.ACTIVITYPUB_PUBLIC_KEY
     }
   });

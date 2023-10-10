@@ -223,13 +223,12 @@ async function saveFollow(message: AP.Follow, actorInformation: AP.Actor) {
   await followDocRef.set(message);
 
   const guid = uuid();
-  const domain = 'flear.org';
 
   const acceptRequest: AP.Accept = <AP.Accept>{
     "@context": "https://www.w3.org/ns/activitystreams",
-    'id': `https://${domain}/${guid}`,
+    'id': `${process.env.ACTIVITYPUB_URL}${guid}`,
     'type': 'Accept',
-    'actor': "https://flear.org/flear",
+    'actor': `${process.env.ACTIVITYPUB_URL}${process.env.ACTIVITYPUB_USER.toLowerCase()}`,
     'object': message.id
   };
 

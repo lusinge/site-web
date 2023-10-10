@@ -9,7 +9,7 @@ export default function (req: VercelRequest, res: VercelResponse) {
       "name": "flear.org",
       "repository": "https://git.qoto.org/flear/flear-site",
       "homepage": "https://flear.org/",
-        "version": "0.0.1"
+      "version": "0.0.1"
     },
     "protocols": [
       "activitypub"
@@ -27,7 +27,7 @@ export default function (req: VercelRequest, res: VercelResponse) {
       }
     },
     "metadata": {
-      "nodeName": "flear.org"
+      "nodeName": `${process.env.ACTIVITYPUB_NAME}`
     }
   });
 }

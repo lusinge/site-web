@@ -40,6 +40,8 @@ This project (excluding post content itself) is released under the Apache Licens
 ** NEXT_PUBLIC_FIREBASE_PROJECT_ID
 ** ACTIVITYPUB_URL
 ** ACTIVITYPUB_USER
+** ACTIVITYPUB_URL_ALIAS
+** ACTIVITYPUB_USER_ALIAS
 ** ACTIVITYPUB_NAME
 ** ACTIVITYPUB_SUMMARY
 * Modify /layouts/partials/top_list_* to represent the section titles you want to use.
@@ -56,3 +58,4 @@ This project (excluding post content itself) is released under the Apache Licens
 * Go through the /api and manually change references (this step will either be explained later or not needed soon, just a reminder placeholder)
 
 The above steps might be reduced by using template processing on otherwise unprocessed files (normally not part of hugo). See the following for more info https://vercel.com/docs/functions/serverless-functions/runtimes/node-js
+NOTE: Once we move the project over to a dedicated git, change the node info under api and track the version

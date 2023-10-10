@@ -8,7 +8,7 @@ export default function (req: VercelRequest, res: VercelResponse) {
     "links": [
       {
         "rel": "http://nodeinfo.diaspora.software/ns/schema/2.1",
-        "href": "https://flear.org/nodeinfo/2.1"
+        "href": `${process.env.ACTIVITYPUB_URL}nodeinfo/2.1`
       }
     ]
   });

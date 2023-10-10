@@ -44,7 +44,7 @@ img.profile.photo {
 </style>
 </head>
 <body>
-<div class="comments webmentions">            
+<div class="comments webmentions">
   <h4>Likes and bookmarks</h4>
   ${data.filter(item => item['wm-property'] === 'like-of' || item['wm-property'] === 'bookmark-of').map(item => html`<a href="${sanitize(item.author.url)}" target="_blank"><img src="${sanitize(item.author.photo)}" alt="${sanitize(item.author.name)}" class="profile photo" loading="lazy"></a>`)}
   <h4>Reposts</h4>
@@ -82,7 +82,7 @@ class FromWhatWGReadableStream extends Readable {
 }
 
 module.exports = async (req, res) => {
-  const { url = 'https://flear.org/', count = 200 } = req.query;
+  const { url = `${process.env.ACTIVITYPUB_URL}following`, count = 200 } = req.query;
   const referer = req.headers.referer;
   const cacheAge = 12 * 60 * 60;
 

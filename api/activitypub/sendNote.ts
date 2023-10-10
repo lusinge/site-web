@@ -60,7 +60,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
 
   // Get my outbox because it contains all my notes.
-  const outboxResponse = await fetch('https://flear.org/outbox');
+  const outboxResponse = await fetch(`${process.env.ACTIVITYPUB_URL}outbox`);
   const outbox = <OrderedCollection>(await outboxResponse.json());
 
   const followersCollection = db.collection('followers');
