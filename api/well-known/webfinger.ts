@@ -7,7 +7,7 @@ export default function (req: VercelRequest, res: VercelResponse) {
   const apDomain = (new URL(`${process.env.ACTIVITYPUB_URL}`)).hostname;
   let apAlias;
   if( process.env.ACTIVITYPUB_URL_ALIAS && process.env.ACTIVITYPUB_USER_ALIAS ) {
-    apAlias = `${process.env.ACTIVITYPUB_URL_ALIAS}${process.env.ACTIVITYPUB_USER_ALIAS.toLowerCase()}`;
+    apAlias = `${process.env.ACTIVITYPUB_ALIAS}`;
   } else {
     apAlias = ""
   }
