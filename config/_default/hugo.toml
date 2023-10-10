@@ -7,6 +7,8 @@ pygmentsStyle = "monokai"
 DefaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
+enableRobotsTXT = true
+
 [services.rss]
 limit = 50
 
@@ -65,3 +67,6 @@ getenv = ['^HUGO_', '^CI$', '^ACTIPAGE_']
 
 [params]
 siteAuthor="Jeffrey Phillips Freeman"
+
+[sitemap]
+filename = 'sitemap.xml'
