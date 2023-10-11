@@ -11,6 +11,7 @@ The moment you have all been waiting for, v1 of Fedipage has just been released.
 This is our first version, so consider it as a beta, but it is fully functional.
 
 You can find the release on our GitLab here:
+https://git.qoto.org/fedipage/fedipage/-/tags/v1.0.0
 
 Here is what we have accomplished so far:
 
