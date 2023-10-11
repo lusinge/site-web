@@ -122,7 +122,7 @@ Go to your GitLab project and find the settings on CI/CD and under there you wil
 
 We also need to configure the sidebar's microblog to point to your alias account. If you dont have one you may want to disable this entierly.
 
-It is pretty simpler first just go here and fill out the form: https://www.mastofeed.com/ . Feel free to set the UI scale to whatever you want but I find 80 works best. Also select the light theme to it matches. Make sure you uncheck show header as well.
+It is pretty simpler first just go here and fill out the form: https://www.mastofeed.com/ . Feel free to set the UI scale to whatever you want but I find 80 works best. Also select the light theme to it matches. Make sure you uncheck show header as well. Finally set the width to a value of 100%.
 
 Just copy and paste the iframe result into the /layouts/partials/microblog_iframe.html
 
