@@ -1,10 +1,10 @@
 ---
 slug: fedipage-v1-released
-date: '2023-10-10T02:36:48Z'
+date: '2023-10-11T16:13:05Z'
 title: Fedipage, ActivityPub for Static Sites, has Released v1
 tags:
 - Release
-draft: true
+draft: false
 ---
 
 The moment you have all been waiting for, v1 of Fedipage has just been released.
