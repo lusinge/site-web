@@ -1,9 +1,3 @@
-## Trigger post deploy
-
-```
-curl -G -X POST --data-urlencode token="<token>" https://<your domain>/send-note
-```
-
 # License
 
 This project (excluding post content itself) is released under the Apache License v2
@@ -130,6 +124,23 @@ Just copy and paste the iframe result into the /layouts/partials/microblog_ifram
 
 All that is left now is to push your code to your GitLab repo. At that point the .gitlab-ci.yaml file should automatically do the rest. After a few minutes you should have a running static site with full ActivityPub support. Enjoy.
 
-# Development notes
+# Development
 
 Here is some information about how to do some processing on the serverless functions in the /api folder: https://vercel.com/docs/functions/serverless-functions/runtimes/node-js
+
+To obtain the source simply clone our git
+
+```bash
+git clone https://git.qoto.org/fedipage/fedipage
+```
+
+## Trigger post deploy
+
+Typically every 5 minutes the server will call send-note automatically. However
+you can trigger it manually with the following code.
+
+```
+curl -G -X POST --data-urlencode token="<token>" https://<your domain>/send-note
+```
+Keep in mind the POLL_MILLISECONDS env variable acts as a guard against this
+being called too often. You will need to set this to a low value for debugging.
