@@ -84,8 +84,8 @@ We will use these keys to set the values in the next step.
 Now lets set the environment values to be used in vercel (this mostly only effect the stuff under /api).
 
 * POLL_MILLISECONDS: Set to 250000 or higher. This sets the minimum wait time between calls to the send-note endpoint. You may wish to adjust the cronjob in vercel.json as well.
-* ACTIVITYPUB_PRIVATE_KEY: Get this value from generating the keys in the previous step.
-* ACTIVITYPUB_PUBLIC_KEY: Get this value from generating the keys in the previous step.
+* ACTIVITYPUB_PRIVATE_KEY: Get this value from generating the keys in the previous step. Note: When you paste in the key vercel will warn about newlines, you must ignore the warning.
+* ACTIVITYPUB_PUBLIC_KEY: Get this value from generating the keys in the previous step. Note: When you paste in the key vercel will warn about newlines, you must ignore the warning.
 * FIREBASE_PRIVATE_KEY: The value from earlier when setting up Firebase contained in the json. This is **not** the same as the ACTIVITYPUB_PRIVATE_KEY we generated a moment ago.
 * FIREBASE_CLIENT_EMAIL: The value from earlier when setting up Firebase contained in the json
 * NEXT_PUBLIC_FIREBASE_PROJECT_ID: The value shown in Firebase from the easlier step.
