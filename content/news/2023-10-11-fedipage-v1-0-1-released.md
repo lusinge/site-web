@@ -1,7 +1,7 @@
 ---
-slug: fedipage-v1-released
-date: '2023-10-11T16:13:05Z'
-title: Fedipage, ActivityPub for Static Sites, has Released v1
+slug: fedipage-v1-0-1-released
+date: '2023-10-11T16:39:33Z'
+title: Fedipage, ActivityPub for Static Sites, has Released v1.0.1
 tags:
 - Release
 draft: false
@@ -11,7 +11,7 @@ The moment you have all been waiting for, v1 of Fedipage has just been released.
 This is our first version, so consider it as a beta, but it is fully functional.
 
 You can find the release on our GitLab here:
-https://git.qoto.org/fedipage/fedipage/-/tags/v1.0.0
+https://git.qoto.org/fedipage/fedipage/-/tags/v1.0.1
 
 Here is what we have accomplished so far:
 
