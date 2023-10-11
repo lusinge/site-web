@@ -1,5 +1,7 @@
 # Changelog
 
+## 1.0.2
+
 ## 1.0.1
 
 * Summary text in ActivityPosts did not properly render new lines and other
