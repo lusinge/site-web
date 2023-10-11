@@ -1,12 +1,12 @@
 ---
-slug: flear-goes-live
+slug: fedipage-goes-live
 date: '2023-10-05T02:44:49'
-title: FLEAR Goes Live
+title: Fedipage Goes Live
 tags:
 - Administration
 draft: false
 ---
 
-FLEAR has officially launched!
+Fedipage has officially launched!
 
 More news to come soon.

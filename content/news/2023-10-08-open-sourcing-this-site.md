@@ -1,7 +1,7 @@
 ---
 slug: open-sourcing-this-site
 date: '2023-10-08T20:57:02Z'
-title: Open-sourcing the FLEAR site
+title: Open-sourcing the Fedipage site
 tags:
 - Administration
 draft: false
