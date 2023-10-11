@@ -144,3 +144,23 @@ curl -G -X POST --data-urlencode token="<token>" https://<your domain>/send-note
 ```
 Keep in mind the POLL_MILLISECONDS env variable acts as a guard against this
 being called too often. You will need to set this to a low value for debugging.
+
+## Release Process
+
+Make sure the version is correct in the following locations:
+* `/api/nodeinfo/2.1.ts`
+* `/CHANGELOG.md`
+
+Consider updating dependencies in `/package.json`.
+
+Optionally: Create a news post announcing the release of the new version.
+
+Now just create the git tag for the new version and push it.
+
+```bash
+git tag -a "v1.0.0" "Release version 1.0.0"
+git push origin v1.0.0:v1.0.0
+```
+
+Now bump all the versions to the next patch version in the three files listed
+above and push that to master.
