@@ -1,6 +1,6 @@
-baseurl = "https://flear.org/"
+baseurl = "https://fedipage.com/"
 languageCode = "en-us"
-title = "Free and Libre Engineers for Amateur Radio"
+title = "Hugo based static page genedator and blog with ActivityPub support"
 
 paginate = 20
 pygmentsCodeFences = true
@@ -11,23 +11,34 @@ defaultContentLanguageInSubdir = false
 
 # Author displayed on posts, the current template doesnt actually render this
 [author]
-name = "FLEAR"
-email = "flear@flear.org"
+name = "Fedipage"
+email = "fedipage@fedipage.com"
 
 # Custom site variables used when rendering the template
 [params]
-siteName="FLEAR"
-siteTagLine="Free & Libre Engineers for Amateur Radio"
+siteName="Fedipage"
+siteTagLine="An ActivityPub supporting static page generator."
 # Do not include the @
-twitterUser="FLEAR_radio"
-siteDescription="FLEAR is an open-source and open-standards incubator for Ham Radio"
-# this is the user name of the ActivityPub account. It will be the first part of your handle as @apUSer@domain
-apUser="FLEAR"
+twitterUser="fedipage"
+siteDescription="Fedipage is a Hugo based static page genedator and blog with ActivityPub support"
+# this is the user name of the ActivityPub account. It will be the first part of
+# your handle as @apUser@domain. Please use whatever capitalization styling you
+# want. It will be changed to lowercase for your handle itself. Only include
+# letters.
+apUser="Fedipage"
+# This is where you run an alternative mastodon based account. This will be
+# setup to be an alias for this account.
 secondaryApHost="https://qoto.org"
+# This shouldnt include the @
 secondaryApUser="FLEAR"
-repoUrl="https://git.qoto.org/flear"
-siteRepoUrl="https://git.qoto.org/flear/flear-site"
-siteEmail="flear@flear.org"
-postHashtags=["HamRadio", "AmateurRadio", "Ham", "RF", "ElectricalEngineering", "EE"]
+# The repo use for the repo url button in the navigation menu and other places.
+# This can be any git repor that contains your project code, not the code for
+# this website usually but it can be.
+repoUrl="https://git.qoto.org/fedipage/fedipage"
+# The url to where the source code for this website will be.
+siteRepoUrl="https://git.qoto.org/fedipage/fedipage"
+# The email of the site's webmaster or whoever will receive comms
+siteEmail="the@jeffreyfreeman.me"
+postHashtags=["Fediverse", "ActivityPub", "MastoAdmin"]
 renderDefaultHashtags=true
 renderArticleHashtags=true

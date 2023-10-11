@@ -15,6 +15,6 @@ const pair = await generateKeyPairAsync('rsa', {
   }
 })
 
-console.log(pair.publicKey);
+console.log(pair.publicKey.toString().replaceAll('\n', '\\n'));
 
-console.log(pair.privateKey);
+console.log(pair.privateKey.toString().replaceAll('\n', '\\n'));

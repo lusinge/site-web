@@ -1,6 +1,6 @@
 {
-  "name": "flear.org",
-  "description": "FLEAR (Free and Libre Engineers for Amateur Radio)",
+  "name": "fedipage",
+  "description": "Hugo based static page genedator and blog with ActivityPub support",
   "dependencies": {
     "@firebase/app-types": "^0.9.0",
     "@polymath-ai/client": "*",

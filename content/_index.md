@@ -4,7 +4,7 @@ title: Welcome
 draft: false
 ---
 
-{{< titled-side "FLEAR" "Free and Libre Engineers for Amateur Radio" "Learn More" "/about" "Follow our GitLab →" "https://git.qoto.org/flear" >}}
+{{< titled-side "Fedipage" "Hugo based static page genedator and blog with ActivityPub support" "Learn More" "/about" "Follow our GitLab →" "https://git.qoto.org/fedipage/fedipage" >}}
   {{< example "This is the title for the example" >}}
     {{< highlight bash >}}
       console.log("hello tabs");
@@ -86,9 +86,9 @@ draft: false
   {{< / card-row >}}
   {{< card-row >}}
     {{<card "APEX" "https://git.qoto.org/digipex/apex" "@digipex/apex" "1" "*" >}}
-      An APRS and APXP implementation in Pythong
+      An APRS and APXP implementation in Python
     {{< / card >}}
   {{< / card-row >}}
 {{< / cards >}}
 
-{{< info-buttons "Learn More" "/about" "Follow our GitLab →" "https://git.qoto.org/flear" >}}
+{{< info-buttons "Learn More" "/about" "Follow our GitLab →" "https://git.qoto.org/fedipage/fedipage" >}}

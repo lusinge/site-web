@@ -6,9 +6,9 @@ export default function (req: VercelRequest, res: VercelResponse) {
   res.json({
     "version": "2.1",
     "software": {
-      "name": "flear.org",
-      "repository": "https://git.qoto.org/flear/flear-site",
-      "homepage": "https://flear.org/",
+      "name": "Fedipage",
+      "repository": "https://git.qoto.org/fedipage/fedipage",
+      "homepage": "https://fedipage.com/",
       "version": "0.0.1"
     },
     "protocols": [
