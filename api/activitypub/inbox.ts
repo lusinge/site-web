@@ -77,6 +77,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     res.end("ok");
 
     const actorInbox = new URL(<URL>actorInformation.inbox);
+    console.log("sending follow accept: ", actorInbox, acceptRequest);
     const response = await sendSignedRequest(actorInbox, acceptRequest);
     console.log("Following result", response.status, response.statusText, await response.text());
     return;

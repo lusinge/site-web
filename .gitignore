@@ -18,3 +18,4 @@ resources/
 .vercel/
 auth.json
 .vercel
+*.pem
