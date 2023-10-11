@@ -118,6 +118,14 @@ Go to your GitLab project and find the settings on CI/CD and under there you wil
 * Change the /content/_index.md to suite your needs
 * Modify /layouts/partials/top_list_* to represent the section titles you want to use.
 
+### Microblog Side Menu
+
+We also need to configure the sidebar's microblog to point to your alias account. If you dont have one you may want to disable this entierly.
+
+It is pretty simpler first just go here and fill out the form: https://www.mastofeed.com/ . Feel free to set the UI scale to whatever you want but I find 80 works best. Also select the light theme to it matches. Make sure you uncheck show header as well.
+
+Just copy and paste the iframe result into the /layouts/partials/microblog_iframe.html
+
 ## Final steps
 
 All that is left now is to push your code to your GitLab repo. At that point the .gitlab-ci.yaml file should automatically do the rest. After a few minutes you should have a running static site with full ActivityPub support. Enjoy.
