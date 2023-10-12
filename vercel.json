@@ -72,7 +72,7 @@
       "destination": "/:pathSection/:pathPage/status.ajson"
     },
     {
-      "source": "/:pathSection/:pathPage,
+      "source": "/:pathSection/:pathPage",
       "has": [
         {
           "type": "header",
