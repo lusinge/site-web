@@ -3,11 +3,6 @@
   "framework": "hugo",
   "redirects": [
     {
-      "source": "/news/(.*)/",
-
-      "destination": "/news/$1/status.ajson"
-    },
-    {
       "source": "/amp/(.+)/",
       "destination": "/$1/"
     },
@@ -25,6 +20,17 @@
     }
   ],
   "rewrites": [
+    {
+      "source": "/news/(.*)/",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/activity+json"
+        }
+      ],
+      "destination": "/news/$1/status.ajson"
+    },
     {
       "source": "/(.+)/$",
       "destination": "/$1/index.html"
