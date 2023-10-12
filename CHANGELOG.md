@@ -3,6 +3,9 @@
 ## 1.0.2
 
 * Fixed bad id in `/followers` ActivityPub endpoint.
+* Created activity and status pages for each page independent from the outbox.
+    This should enable searches for specific posts to work rather than simply
+    pointing to the main user.
 
 ## 1.0.1
 

@@ -12,8 +12,11 @@ enableRobotsTXT = true
 [services.rss]
 limit = 50
 
-[permalinks]
-post = "/:title/"
+# [permalinks]
+# [permalinks.page]
+# news = "/:section/:slug/"
+# projects = "/:section/:slug/"
+# resource = "/:section/:slug/"
 
 [taxonimies]
 tag = "tags"
@@ -39,11 +42,15 @@ baseName = "outbox"
 mediaType = "application/json"
 notAlternative = true
 baseName = "manifest"
+[outputFormats.ACTIVITY_STATUS]
+mediaType = "application/activity+json"
+notAlternative = true
+baseName = "status"
 
 [outputs]
 home = ["HTML", "RSS", "ACTIVITY", "ACTIVITY_OUTBOX", "MANIFEST"]
 section = ["HTML", "RSS"]
-page = ["HTML"]
+page = ["HTML", "ACTIVITY_STATUS", "ACTIVITY"]
 
 [related]
 # Only include matches with rank >= threshold. This is a normalized rank between 0 and 100.

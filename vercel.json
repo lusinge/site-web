@@ -59,6 +59,32 @@
     {
       "source": "/send-note",
       "destination": "/api/activitypub/sendNote.js"
+    },
+    {
+      "source": "/:pathSection/:pathPage/",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/activity+json"
+        }
+      ],
+      "destination": "/:pathSection/:pathPage/status.ajson"
+    },
+    {
+      "source": "/:pathSection/:pathPage/",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "destination": "/:pathSection/:pathPage/status.ajson"
+    },
+    {
+      "source": "/:pathSection/:pathPage/activity",
+      "destination": "/:pathSection/:pathPage/activity.ajson"
     }
   ],
   "functions": {
