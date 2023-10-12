@@ -28,8 +28,5 @@
     "@types/multiparty": "^0.0.34",
     "typescript": "^5.2.2"
   },
-  "type": "module",
-  "scripts": {
-    "vercel-build": "sh clean-build.sh"
-  }
+  "type": "module"
 }
