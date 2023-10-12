@@ -8,15 +8,21 @@ DefaultContentLanguage = "en"
 defaultContentLanguageInSubdir = false
 
 enableRobotsTXT = true
+uglyURLs=false
 
 [services.rss]
 limit = 50
 
 # [permalinks]
+# news = "/:section/:slug/"
+# projects = "/:section/:slug/"
+# resource = "/:section/:slug/"
+# '/' = "/:section/:slug/"
 # [permalinks.page]
 # news = "/:section/:slug/"
 # projects = "/:section/:slug/"
 # resource = "/:section/:slug/"
+# '/' = "/:section/:slug/"
 
 [taxonimies]
 tag = "tags"
@@ -44,8 +50,14 @@ notAlternative = true
 baseName = "manifest"
 [outputFormats.ACTIVITY_STATUS]
 mediaType = "application/activity+json"
-notAlternative = true
+notAlternative = false
 baseName = "status"
+#[outputFormats.HTML_STATUS]
+#mediaType = "text/html"
+#notAlternative = true
+#baseName = "index"
+#permalinkable=false
+#noUgly=true
 
 [outputs]
 home = ["HTML", "RSS", "ACTIVITY", "ACTIVITY_OUTBOX", "MANIFEST"]
