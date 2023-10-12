@@ -61,7 +61,7 @@
       "destination": "/api/activitypub/sendNote.js"
     },
     {
-      "source": "/:pathSection/:pathPage(/|/index.htm|/index.html)",
+      "source": "/:pathSection/:pathPage",
       "has": [
         {
           "type": "header",
@@ -72,7 +72,7 @@
       "destination": "/:pathSection/:pathPage/status.ajson"
     },
     {
-      "source": "/:pathSection/:pathPage/(/|/index.htm|/index.html)",
+      "source": "/:pathSection/:pathPage,
       "has": [
         {
           "type": "header",
@@ -83,7 +83,7 @@
       "destination": "/:pathSection/:pathPage/status.ajson"
     },
     {
-      "source": "/:pathSection/:pathPage/activity[/]{0,1}",
+      "source": "/:pathSection/:pathPage/activity",
       "destination": "/:pathSection/:pathPage/activity.ajson"
     }
   ],
