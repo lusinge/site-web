@@ -62,13 +62,7 @@
     },
     {
       "source": "/news/:pathPage/",
-      "has": [
-        {
-          "type": "header",
-          "key": "Accept",
-          "value": "application/activity+json"
-        }
-      ],
+      
       "destination": "/news/:pathPage/status.ajson"
     },
     {
