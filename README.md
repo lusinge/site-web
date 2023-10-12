@@ -60,6 +60,18 @@ Please try again`. If you see it but there are no other errors then it probably
 worked. Check your dashboard at vercel.com and you should see an empty project
 was created.
 
+After it is created you have to first make sure you updated `/clean-build.sh`,
+if you changed the name or number of any of the sections. If not make that
+change now. Finally go to the settings for the newly created project and in the
+general section add the following as an "overide" to the build command:
+
+```bash
+hugo --gc && sh clean-build.sh
+```
+
+This is a huge hack but the only solution I could find, if someone has a better
+way to do this please let me know or submit a PR.
+
 ### Populate Vercel Env Variables
 
 Next go to your Vercel dashboard then navigate to to your new project. In the
