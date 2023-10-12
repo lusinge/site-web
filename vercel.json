@@ -61,9 +61,15 @@
       "destination": "/api/activitypub/sendNote.js"
     },
     {
-      "source": "/:pathSection/:pathPage/",
-
-      "destination": "/:pathSection/:pathPage/status.ajson"
+      "source": "/news/:pathPage/",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/activity+json"
+        }
+      ],
+      "destination": "/news/:pathPage/status.ajson"
     },
     {
       "source": "/:pathSection/:pathPage/activity",
