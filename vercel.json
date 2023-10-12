@@ -17,6 +17,17 @@
     {
       "source": "/activitypub-support-added/",
       "destination": "/news/activitypub-support-added/"
+    },
+    {
+      "source": "/news/:pathPage/",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/activity+json"
+        }
+      ],
+      "destination": "/news/:pathPage/status.ajson"
     }
   ],
   "rewrites": [
@@ -59,11 +70,6 @@
     {
       "source": "/send-note",
       "destination": "/api/activitypub/sendNote.js"
-    },
-    {
-      "source": "/news/:pathPage/",
-      
-      "destination": "/news/:pathPage/status.ajson"
     },
     {
       "source": "/:pathSection/:pathPage/activity",
