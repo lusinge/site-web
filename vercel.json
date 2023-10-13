@@ -33,11 +33,11 @@
     },
     {
       "source": "/([^/]*)/(.*)/",
-      "missing": [
+      "has": [
         {
           "type": "header",
           "key": "Accept",
-          "value": "application/activity+json"
+          "value": "text/html"
         }
       ],
       "destination": "/$1/$2/status.html"
