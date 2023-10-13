@@ -69,7 +69,7 @@
           "value": "application/activity+json"
         }
       ],
-      "destination": "/news/pathPage/status.ajson"
+      "destination": "/news/:pathPage/status.ajson"
     },
     {
       "source": "/news/:pathPage/",
@@ -80,11 +80,11 @@
           "value": "application/activity+json"
         }
       ],
-      "destination": "/news/pathPage/status.html"
+      "destination": "/news/:pathPage/status.html"
     },
     {
-      "source": "/news/:pathPage/activity",
-      "destination": "/news/:pathPage/activity.ajson"
+      "source": "/([^/]*)/(.*)/activity",
+      "destination": "/$1/$2/activity.ajson"
     }
   ],
   "functions": {
