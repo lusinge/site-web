@@ -66,7 +66,7 @@ change now. Finally go to the settings for the newly created project and in the
 general section add the following as an "overide" to the build command:
 
 ```bash
-hugo --gc && sh clean-build.sh
+hugo --gc && node clean-build.cjs
 ```
 
 This is a huge hack but the only solution I could find, if someone has a better
@@ -78,7 +78,8 @@ Next go to your Vercel dashboard then navigate to to your new project. In the
 settings tab there should be an `Environment Variables` section. Here is where
 we will populate those.
 
-First generate your public and private keys used for ActivityPub. It is important you dont loose these as they identify your site. So save them.
+First generate your public and private keys used for ActivityPub. It is
+important you dont loose these as they identify your site. So save them.
 
 ```bash
 npm install ts-node typescript '@types/node'
