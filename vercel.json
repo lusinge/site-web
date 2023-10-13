@@ -101,6 +101,60 @@
     }
   },
   "headers": [
+
+    {
+      "source": "/([^/]*)/(.*)/",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/activity\\+json"
+        }
+      ],
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/activity+json"
+        }
+      ]
+    },
+    {
+      "source": "/([^/]*)/(.*)/",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/json"
+        }
+      ]
+    },
+    {
+      "source": "/([^/]*)/(.*)/",
+      "missing": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/activity\\+json"
+        },
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "text/html"
+        }
+      ]
+    },
     {
       "source": "/(.*).ajson",
       "headers": [
