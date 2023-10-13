@@ -60,7 +60,7 @@ Please try again`. If you see it but there are no other errors then it probably
 worked. Check your dashboard at vercel.com and you should see an empty project
 was created.
 
-After it is created you have to first make sure you updated `/clean-build.sh`,
+After it is created you have to first make sure you updated `/clean-build.cjs`,
 if you changed the name or number of any of the sections. If not make that
 change now. Finally go to the settings for the newly created project and in the
 general section add the following as an "override" to the build command:

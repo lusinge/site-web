@@ -38,7 +38,7 @@ suffixes = ["json"]
 [outputFormats]
 [outputFormats.ACTIVITY]
 mediaType = "application/activity+json"
-notAlternative = true
+notAlternative = false
 baseName = "activity"
 [outputFormats.ACTIVITY_OUTBOX]
 mediaType = "application/activity+json"
@@ -52,12 +52,6 @@ baseName = "manifest"
 mediaType = "application/activity+json"
 notAlternative = false
 baseName = "status"
-#[outputFormats.HTML_STATUS]
-#mediaType = "text/html"
-#notAlternative = true
-#baseName = "index"
-#permalinkable=false
-#noUgly=true
 
 [outputs]
 home = ["HTML", "RSS", "ACTIVITY", "ACTIVITY_OUTBOX", "MANIFEST"]
