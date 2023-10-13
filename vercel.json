@@ -27,7 +27,17 @@
       ],
       "destination": "/$1/$2/status.ajson"
     },
-
+    {
+      "source": "/([^/]*)/(.*)/",
+      "missing": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/activity\\+json"
+        }
+      ],
+      "destination": "/$1/$2/status.html"
+    },
     {
       "source": "/([^/]*)/(.*)/activity",
       "destination": "/$1/$2/activity.ajson"
