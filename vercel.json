@@ -130,7 +130,7 @@
       "headers": [
         {
           "key": "content-type",
-          "value": "application/json"
+          "value": "application/activity+json"
         }
       ]
     },
