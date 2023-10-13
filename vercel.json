@@ -61,7 +61,7 @@
       "destination": "/api/activitypub/sendNote.js"
     },
     {
-      "source": "/:pathSection/:pathPage/",
+      "source": "/news/:pathPage/",
       "has": [
         {
           "type": "header",
@@ -69,10 +69,10 @@
           "value": "application/activity+json"
         }
       ],
-      "destination": "/:pathSection/pathPage/status.ajson"
+      "destination": "/news/pathPage/status.ajson"
     },
     {
-      "source": "/:pathSection/:pathPage/",
+      "source": "/news/:pathPage/",
       "missing": [
         {
           "type": "header",
@@ -80,11 +80,11 @@
           "value": "application/activity+json"
         }
       ],
-      "destination": "/:pathSection/pathPage/status.html"
+      "destination": "/news/pathPage/status.html"
     },
     {
-      "source": "/:pathSection/:pathPage/activity",
-      "destination": "/:pathSection/:pathPage/activity.ajson"
+      "source": "/news/:pathPage/activity",
+      "destination": "/news/:pathPage/activity.ajson"
     }
   ],
   "functions": {
