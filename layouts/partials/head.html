@@ -17,6 +17,10 @@
   <meta name="supported-color-schemes" content="light dark">
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}#000000{{ end }}">
 
+  {{ if (and .Permalink (not .IsHome)) }}
+    <link href='{{ .Permalink }}' rel='alternate' type='application/activity+json'>
+  {{end}}
+
   <meta property="og:site_name" content="{{ site.Params.siteName }}">
 
   <!-- Indicates the twitter account that is the source for this webpage -->
