@@ -18,7 +18,7 @@
   <meta name="theme-color" content="{{ if .Params.themecolor }}#{{ .Params.themecolor}}{{ else }}#000000{{ end }}">
 
   {{ if (and .Permalink (not .IsHome)) }}
-    <link href="{{ .Permalink | safeURL }status.ajson" rel='alternate' type='application/activity+json'>
+    <link href="{{ .Permalink | safeURL }|status.ajson" rel='alternate' type='application/activity+json'>
   {{end}}
 
   <meta property="og:site_name" content="{{ site.Params.siteName }}">
