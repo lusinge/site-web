@@ -63,7 +63,7 @@ was created.
 After it is created you have to first make sure you updated `/clean-build.sh`,
 if you changed the name or number of any of the sections. If not make that
 change now. Finally go to the settings for the newly created project and in the
-general section add the following as an "overide" to the build command:
+general section add the following as an "override" to the build command:
 
 ```bash
 hugo --gc && node clean-build.cjs
@@ -88,7 +88,7 @@ npm install ts-node typescript '@types/node'
 
 We will use these keys to set the values in the next step.
 
-Now lets set the environment values to be used in vercel (this mostly only effect the stuff under /api).
+Now lets set the environment values to be used in Vercel (this mostly only effect the stuff under /api).
 
 * POLL_MILLISECONDS: Set to 250000 or higher. This sets the minimum wait time between calls to the send-note endpoint. You may wish to adjust the cronjob in vercel.json as well.
 * ACTIVITYPUB_PRIVATE_KEY: Get this value from generating the keys in the previous step. Note: When you paste in the key vercel will warn about newlines, you must ignore the warning.
@@ -127,7 +127,7 @@ Go to your GitLab project and find the settings on CI/CD and under there you wil
 
 ### Microblog Side Menu
 
-We also need to configure the sidebar's microblog to point to your alias account. If you dont have one you may want to disable this entierly.
+We also need to configure the sidebar's microblog to point to your alias account. If you dont have one you may want to disable this entirely.
 
 It is pretty simpler first just go here and fill out the form: https://www.mastofeed.com/ . Feel free to set the UI scale to whatever you want but I find 80 works best. Also select the light theme to it matches. Make sure you uncheck show header as well. Finally set the width to a value of 100%.
 
