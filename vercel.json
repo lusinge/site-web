@@ -21,6 +21,32 @@
   ],
   "rewrites": [
     {
+      "source": "/([^/]*)/(.*)/",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/activity+json"
+        }
+      ],
+      "destination": "/$1/$2/status.ajson"
+    },
+    {
+      "source": "/([^/]*)/(.*)/",
+      "missing": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/activity+json"
+        }
+      ],
+      "destination": "/$1/$2/status.html"
+    },
+    {
+      "source": "/([^/]*)/(.*)/activity",
+      "destination": "/$1/$2/activity.ajson"
+    },
+    {
       "source": "/(.+)/$",
       "destination": "/$1/index.html"
     },
@@ -59,32 +85,6 @@
     {
       "source": "/send-note",
       "destination": "/api/activitypub/sendNote.js"
-    },
-    {
-      "source": "/news/:pathPage/",
-      "has": [
-        {
-          "type": "header",
-          "key": "Accept",
-          "value": "application/activity+json"
-        }
-      ],
-      "destination": "/news/:pathPage/status.ajson"
-    },
-    {
-      "source": "/news/:pathPage/",
-      "missing": [
-        {
-          "type": "header",
-          "key": "Accept",
-          "value": "application/activity+json"
-        }
-      ],
-      "destination": "/news/:pathPage/status.html"
-    },
-    {
-      "source": "/([^/]*)/(.*)/activity",
-      "destination": "/$1/$2/activity.ajson"
     }
   ],
   "functions": {
