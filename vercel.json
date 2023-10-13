@@ -7,10 +7,6 @@
       "destination": "/$1/"
     },
     {
-      "source": "/(\\d+)/(\\d+)/(.+).html",
-      "destination": "/$3/"
-    },
-    {
       "source": "/atom.xml",
       "destination": "/index.xml"
     },
