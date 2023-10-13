@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.0.2
+## 1.1.0
 
 * Fixed bad id in `/followers` ActivityPub endpoint.
 * Created activity and status pages for each page independent from the outbox.
