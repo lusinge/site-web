@@ -117,7 +117,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     if (typeof actor == "string") {
       return `<a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a>`;
     } else if (actor != undefined ) {
-      let actor_icon_url = "";
+      let actor_icon_url = "/images/missing_avatar.png";
       if( actor.icon != undefined) {
         actor_icon_url = actor.icon.url;
       }
@@ -135,7 +135,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     if (typeof actor == "string") {
       return `<a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a>`;
     } else if (actor != undefined ) {
-      let actor_icon_url = "";
+      let actor_icon_url = "/images/missing_avatar.png";
       if( actor.icon != undefined) {
         actor_icon_url = actor.icon.url;
       }
@@ -153,7 +153,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     if (typeof actor == "string") {
       return `<div><a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a> wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></div>`;
     } else if (actor != undefined ) {
-      let actor_icon_url = "";
+      let actor_icon_url = "/images/missing_avatar.png";
       if( actor.icon != undefined) {
         actor_icon_url = actor.icon.url;
       }

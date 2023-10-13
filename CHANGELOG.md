@@ -6,6 +6,8 @@
 * Created activity and status pages for each page independent from the outbox.
     This should enable searches for specific posts to work rather than simply
     pointing to the main user.
+* In the comment section for a page if a user doesnt have a profile picture
+    setup it will now default to a generic avatar rather than render text.
 
 ## 1.0.1
 
