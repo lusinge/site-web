@@ -8,6 +8,8 @@
     pointing to the main user.
 * In the comment section for a page if a user doesnt have a profile picture
     setup it will now default to a generic avatar rather than render text.
+* Removed image alt text when rendering page comments. If an image profile link
+    wqs broken the rendered text would not look right.
 
 ## 1.0.1
 

@@ -121,7 +121,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       if( actor.icon != undefined) {
         actor_icon_url = actor.icon.url;
       }
-      return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor_icon_url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`;
+      return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor_icon_url)}"></a>`;
     } else {
       return "";
     }
@@ -139,7 +139,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       if( actor.icon != undefined) {
         actor_icon_url = actor.icon.url;
       }
-      return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor_icon_url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`;
+      return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor_icon_url)}"></a>`;
     } else {
       return "";
     }
@@ -158,7 +158,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         actor_icon_url = actor.icon.url;
       }
       return `<div class="reply">
-        <p><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor_icon_url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>${escapeHTML(actor.name)} wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></p>
+        <p><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor_icon_url)}"></a>${escapeHTML(actor.name)} wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></p>
 
         </div>`
     } else {
