@@ -72,11 +72,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
           color: #fefefe;
           background-color: #212529;
         }
-      
+
         a {
           color: #1bcba2
         }
-      
+
         a:visited {
           color: #7ad857
         }
@@ -108,7 +108,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       }
       </style>
     </head>
-    <body>  
+    <body>
       <h1>Interactions from around the fediverse</h1>
       <section class="likes">
       <h4>Likes (${likesCount})</h4>
@@ -116,9 +116,15 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const { actor } = doc.data();
     if (typeof actor == "string") {
       return `<a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a>`;
+    } else if (actor != undefined ) {
+      let actor_icon_url = "";
+      if( actor.icon != undefined) {
+        actor_icon_url = actor.icon.url;
+      }
+      return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor_icon_url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`;
+    } else {
+      return "";
     }
-
-    return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`
   }
   ).join("")}
       </section>
@@ -128,9 +134,15 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const { actor } = doc.data();
     if (typeof actor == "string") {
       return `<a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a>`;
+    } else if (actor != undefined ) {
+      let actor_icon_url = "";
+      if( actor.icon != undefined) {
+        actor_icon_url = actor.icon.url;
+      }
+      return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor_icon_url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`;
+    } else {
+      return "";
     }
-
-    return `<a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>`
   }
   ).join("")}
       </section>
@@ -140,12 +152,18 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     const { actor, object } = doc.data();
     if (typeof actor == "string") {
       return `<div><a href="${escapeHTML(actor)}" target="_parent" rel="nofollow">${escapeHTML(actor)}</a> wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></div>`;
-    }
+    } else if (actor != undefined ) {
+      let actor_icon_url = "";
+      if( actor.icon != undefined) {
+        actor_icon_url = actor.icon.url;
+      }
+      return `<div class="reply">
+        <p><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor_icon_url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>${escapeHTML(actor.name)} wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></p>
 
-    return `<div class="reply">
-      <p><a title="${escapeHTML(actor.name)}" href="${escapeHTML(actor.url)}" target="_parent" rel="nofollow"><img class="profile" src="${escapeHTML(actor.icon.url)}" alt="The profile picture of ${escapeHTML(actor.name)}"></a>${escapeHTML(actor.name)} wrote: <blockquote>${escapeHTML(stripHTML(object.content))}</blockquote></p>
-       
-      </div>`
+        </div>`
+    } else {
+      return "";
+    }
   }
   ).join("")}
       </section>
