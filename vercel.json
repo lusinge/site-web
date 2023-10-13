@@ -26,7 +26,7 @@
         {
           "type": "header",
           "key": "Accept",
-          "value": "application/activity+json"
+          "value": "application/json"
         }
       ],
       "destination": "/$1/$2/status.ajson"
