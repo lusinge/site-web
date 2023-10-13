@@ -29,11 +29,27 @@
     },
     {
       "source": "/([^/]*)/(.*)/",
+      "has": [
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/json"
+        }
+      ],
+      "destination": "/$1/$2/status.ajson"
+    },
+    {
+      "source": "/([^/]*)/(.*)/",
       "missing": [
         {
           "type": "header",
           "key": "Accept",
           "value": "application/activity\\+json"
+        },
+        {
+          "type": "header",
+          "key": "Accept",
+          "value": "application/json"
         }
       ],
       "destination": "/$1/$2/status.html"
