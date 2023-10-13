@@ -1,4 +1,5 @@
 {
+  {{ partial "context.ajson" . }},
   "id": "{{ .Permalink }}",
   "type": "Note",
   "summary": null,

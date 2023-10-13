@@ -1,5 +1,5 @@
 {
-  "@context": "https://www.w3.org/ns/activitystreams",
+  {{ partial "context.ajson" . }},
   "id": "{{.Permalink}}activity",
   "type": "Create",
   "actor": "{{ .Site.BaseURL }}{{ site.Params.apUser | lower}}",
