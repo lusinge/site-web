@@ -7,7 +7,7 @@
 {{- $pages = $pctx.Pages -}}
 {{- end -}}
 {
-  "@context": "https://www.w3.org/ns/activitystreams",
+  {{ partial "context.ajson" . }},
   "id": "{{ $.Site.BaseURL }}outbox",
   "summary": "{{$.Site.Author.name}} - {{$.Site.Title}}",
   "type": "OrderedCollection",
