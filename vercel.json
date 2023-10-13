@@ -31,24 +31,10 @@
       ],
       "destination": "/$1/$2/status.ajson"
     },
-    {
-      "source": "/([^/]*)/(.*)/",
-      "has": [
-        {
-          "type": "header",
-          "key": "Accept",
-          "value": "text/html"
-        }
-      ],
-      "destination": "/$1/$2/status.html"
-    },
+
     {
       "source": "/([^/]*)/(.*)/activity",
       "destination": "/$1/$2/activity.ajson"
-    },
-    {
-      "source": "/(.+)/$",
-      "destination": "/$1/index.html"
     },
     {
       "source": "/.well-known/(.*)",
