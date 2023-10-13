@@ -1,6 +1,5 @@
 {
-  "@context": ["https://www.w3.org/ns/activitystreams",
-               {"@language": ""en-GB"}],
+  { partial "context.ajson" . }},
   "type": "Person",
   "id": "{{ $.Site.BaseURL }}",
   "outbox": "{{ $.Site.BaseURL }}outbox",

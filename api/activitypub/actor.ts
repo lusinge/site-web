@@ -13,7 +13,7 @@ export default function (req: VercelRequest, res: VercelResponse) {
   res.statusCode = 200;
   res.setHeader("Content-Type", `application/activity+json`);
   res.json({
-    "@context": ["https://www.w3.org/ns/activitystreams", { "@language": "en- GB" }],
+    "@context": "https://www.w3.org/ns/activitystreams",
     "type": "Person",
     "id": `${process.env.ACTIVITYPUB_URL}${process.env.ACTIVITYPUB_USER.toLowerCase()}`,
     "outbox": `${process.env.ACTIVITYPUB_URL}outbox`,
