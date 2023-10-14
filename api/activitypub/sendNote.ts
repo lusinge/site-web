@@ -36,18 +36,18 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   const configRef = configCollection.doc("config");
   const config = await configRef.get();
 
-  if (config.exists == false) {
+  const configData = config.data();
+  let sentIds = [];
+  if ( (!config.exists) || (configData == undefined) ) {
     // Config doesn't exist, make something
     configRef.set({
       "sentIds": [],
       "lastEpoch": ""
     });
-  }
-
-  const configData = config.data();
-  let sentIds = [];
-  if (configData != undefined) {
-    sentIds.push(...configData.sentIds);
+  } else {
+    if( configData.sentIds.length > 0 ) {
+      sentIds.push(...configData.sentIds);
+    }
     let lastEpoch = configData.lastEpoch;
     let currentEpoch = new Date().getTime();
     let elapsed = currentEpoch - lastEpoch;
@@ -56,6 +56,11 @@ export default async function (req: VercelRequest, res: VercelResponse) {
       console.log("Function called too often, doing nothing");
       res.status(401).end("Function is rate limited, please wait")
       return;
+    } else {
+      configRef.set({
+        "sentIds": sentIds,
+        "lastEpoch": new Date().getTime()
+      });
     }
   }
 
@@ -87,7 +92,9 @@ export default async function (req: VercelRequest, res: VercelResponse) {
         if (item.id != undefined && !sentIds.includes(item.id)) {
           if (item.object != undefined) {
             // We might not need this.
-            item.object.published = (new Date()).toISOString();
+            if( (!item.object.published) || (item.object.published == undefined)) {
+              item.object.published = (new Date()).toISOString();
+            }
           }
 
           console.log(`Sending to ${actorInbox}`);
