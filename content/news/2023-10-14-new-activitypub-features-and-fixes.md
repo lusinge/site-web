@@ -1,6 +1,6 @@
 ---
 slug: new-activitypub-features-and-fixes
-date: '2023-10-11T16:39:33Z'
+date: '2023-10-14T01:10:47Z'
 title: New ActivityPub Features and Fixes
 tags:
 - Bugs
