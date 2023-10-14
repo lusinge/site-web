@@ -13,6 +13,8 @@
     wqs broken the rendered text would not look right.
 * The `activity` and `status` endpoints, when called with no extension, now
     return the correct `content-type` in header.
+* Fixed a bug where notifications of newly created posts would get resent
+    periodically.
 
 ## 1.0.1
 
