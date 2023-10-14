@@ -111,7 +111,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
   }
 
   if( sentIds.length > 0 ) {
-    sendingIds.add(...sentIds);
+    sentIds.forEach(item => sendingIds.add(item));
   }
   const newSentIds = [];
   if( sendingIds.size > 0 ) {
