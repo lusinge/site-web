@@ -122,7 +122,7 @@ export default async function (req: VercelRequest, res: VercelResponse) {
     "lastEpoch": new Date().getTime()
   });
 
-  console.log("sendNode successful")
+  console.log("sendNode successful", sentIds, sendingIds, newSentIds);
 
   res.status(200).end("ok");
 };
