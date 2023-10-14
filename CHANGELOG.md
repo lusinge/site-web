@@ -2,12 +2,11 @@
 
 ## 1.1.0
 
+* Added the ability for Mastodon instances to find the associated post when
+    searching for the link in the search bar.
 * Fixed bad id in `/followers` ActivityPub endpoint.
 * Created activity and status pages for each page independent from the outbox.
-    This should enable searches for specific posts to work rather than simply
-    pointing to the main user.
-* Added header link alternates specifying the dual mime type of pages. This
-    should further help with searching for pages as AP status.
+* Added header link alternates specifying the dual mime type of pages.
 * In the comment section for a page if a user doesnt have a profile picture
     setup it will now default to a generic avatar rather than render text.
 * Removed image alt text when rendering page comments. If an image profile link
