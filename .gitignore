@@ -19,3 +19,5 @@ resources/
 auth.json
 .vercel
 *.pem
+/hugo.toml
+content/
