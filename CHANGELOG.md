@@ -15,6 +15,8 @@
     return the correct `content-type` in header.
 * Fixed a bug where notifications of newly created posts would get resent
     periodically.
+* Now uses publication date set in post frontmatter when available otherwise
+    will set the current date when sent out to followers.
 
 ## 1.0.1
 
