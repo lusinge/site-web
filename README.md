@@ -175,5 +175,5 @@ git tag -a "v1.0.0" "Release version 1.0.0"
 git push origin v1.0.0:v1.0.0
 ```
 
-Now bump all the versions to the next patch version in the three files listed
+Now bump all the versions to the next patch version in the two files listed
 above and push that to master.

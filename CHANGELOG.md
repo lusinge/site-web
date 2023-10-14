@@ -1,5 +1,7 @@
 # Changelog
 
+## 1.1.1
+
 ## 1.1.0
 
 * Added the ability for Mastodon instances to find the associated post when
