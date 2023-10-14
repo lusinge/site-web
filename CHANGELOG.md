@@ -2,9 +2,11 @@
 
 ## 1.1.1
 
-* Removed content folder and moved out the Fedipage site into a seperate repo.
+* Removed content folder and moved out the Fedipage site into a separate repo.
     This should make it easier for people who use this site to update from the
     upstream here without needing to worry about conflicts due to content.
+* Fixed links at the bottom of posts that direct people to the gitlab page for
+    the post.
 
 ## 1.1.0
 
