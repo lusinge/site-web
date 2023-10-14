@@ -12,6 +12,8 @@
     setup it will now default to a generic avatar rather than render text.
 * Removed image alt text when rendering page comments. If an image profile link
     wqs broken the rendered text would not look right.
+* The `activity` and `status` endpoints, when called with no extension, now
+    return the correct `content-type` in header.
 
 ## 1.0.1
 

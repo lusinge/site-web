@@ -59,6 +59,10 @@
       "destination": "/$1/$2/activity.ajson"
     },
     {
+      "source": "/([^/]*)/(.*)/status",
+      "destination": "/$1/$2/status.ajson"
+    },
+    {
       "source": "/.well-known/(.*)",
       "destination": "/api/well-known/$1"
     },
@@ -152,6 +156,24 @@
         {
           "key": "content-type",
           "value": "text/html"
+        }
+      ]
+    },
+    {
+      "source": "/([^/]*)/(.*)/activity",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/activity+json"
+        }
+      ]
+    },
+    {
+      "source": "/([^/]*)/(.*)/status",
+      "headers": [
+        {
+          "key": "content-type",
+          "value": "application/activity+json"
         }
       ]
     },
