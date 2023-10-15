@@ -1,6 +1,6 @@
 baseurl = "https://fedipage.com/"
 languageCode = "en-us"
-title = "Hugo based static page genedator and blog with ActivityPub support"
+title = "Hugo based static page generator and blog with ActivityPub support"
 
 paginate = 20
 pygmentsCodeFences = true
@@ -20,7 +20,7 @@ siteName="Fedipage"
 siteTagLine="An ActivityPub supporting static page generator."
 # Do not include the @
 twitterUser="fedipage"
-siteDescription="Fedipage is a Hugo based static page genedator and blog with ActivityPub support"
+siteDescription="Fedipage is a Hugo based static page generator and blog with ActivityPub support"
 # this is the user name of the ActivityPub account. It will be the first part of
 # your handle as @apUser@domain. Please use whatever capitalization styling you
 # want. It will be changed to lowercase for your handle itself. Only include
