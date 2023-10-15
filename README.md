@@ -5,6 +5,10 @@ This project (excluding post content itself) is released under the Apache Licens
 # Fresh install
 
 ## Update /hugo.toml
+
+You can use `/hugo.toml.example` as a starting point. Copy this file (dont move
+it) to `/hugo.toml` and then edit it.
+
 This is the main configuration file. All of the setting in this file need to be
 set. There are other settings, the defaults, set in /config/hugo.toml, there is
 no need to touch this file, only the settings int he configuration at the root.
@@ -31,7 +35,7 @@ To start go to your `project settings` and under the `General` tab you should
 see a field labeled `Project ID`. Save this for later.
 
 Next go to the `Service Accounts` tab and select `Generate new private key`.
-This will download a json file containing your keys. In the json open it up and
+This will download a json file containing your keys. In the JSON open it up and
 find the value of the `private_key` field, and the `client_email` field These
 will be used later.
 
@@ -40,11 +44,11 @@ populate once the app starts running.
 
 ## Setup Vercel
 
-First go to the vercel website and create a team to use when deploying if you'd
+First go to the Vercel website and create a team to use when deploying if you'd
 like. This will be used in the next step during linking, be sure to use this
 team.
 
-Then frrom the root of the project run the following:
+Then from the root of the project run the following:
 
 ```bash
 vercel login
@@ -55,9 +59,9 @@ When asked to "link to existing project" select no since this is your first time
 deploying.
 
 This will then build and upload your project. It may take a few minutes. You may
-see the following error in the ened `Error: Failed to detect project settings.
+see the following error in the end `Error: Failed to detect project settings.
 Please try again`. If you see it but there are no other errors then it probably
-worked. Check your dashboard at vercel.com and you should see an empty project
+worked. Check your dashboard at Vercel.com and you should see an empty project
 was created.
 
 After it is created you have to first make sure you updated `/clean-build.cjs`,
@@ -96,7 +100,7 @@ Now lets set the environment values to be used in Vercel (this mostly only effec
 * FIREBASE_PRIVATE_KEY: The value from earlier when setting up Firebase contained in the json. This is **not** the same as the ACTIVITYPUB_PRIVATE_KEY we generated a moment ago.
 * FIREBASE_CLIENT_EMAIL: The value from earlier when setting up Firebase contained in the json
 * NEXT_PUBLIC_FIREBASE_PROJECT_ID: The value shown in Firebase from the easlier step.
-* ACTIVITYPUB_URL: This should be the same as the BaseURL setting for your sight. For example `https://fedipage.com/`. The trailing slash is very important dont forget it.
+* ACTIVITYPUB_URL: This should be the same as the `BaseURL` setting for your sight. For example `https://fedipage.com/`. The trailing slash is very important dont forget it.
 * ACTIVITYPUB_USER: The username of the ActivityPub user. This can have any capitalization you want and will be made lower when needed.
 * ACTIVITYPUB_ALIAS: Optional if you dont want to set it. This should be a url to a fediverse account you want to designate as an alias. For example `https://qoto.org/@fedipage`
 * ACTIVITYPUB_NAME: The full display name of the ActivityPub user. It can contain spacing and punctuation.
@@ -121,9 +125,13 @@ Go to your GitLab project and find the settings on CI/CD and under there you wil
 
 ## Customize your content
 
-* Delete the existing content
-* Change the /content/_index.md to suite your needs
+The content directory is currently empty to make it easier for projects to maintain updates. If you need an example of a working content directory see our live page's content here [https://git.qoto.org/fedipage/fedipage/-/tree/master/content](https://git.qoto.org/fedipage/fedipage/-/tree/master/content).
+
+Make sure to do the following:
+
+* Add a `/content/_index.md`, see the example above for the format of shortcodes for use in the index.
 * Modify /layouts/partials/top_list_* to represent the section titles you want to use.
+* Add a folder for each section you configured (by default `news`, `projects`, and `resource`) and fill it with content.
 
 ### Microblog Side Menu
 
@@ -139,41 +147,4 @@ All that is left now is to push your code to your GitLab repo. At that point the
 
 # Development
 
-Here is some information about how to do some processing on the serverless functions in the /api folder: https://vercel.com/docs/functions/serverless-functions/runtimes/node-js
-
-To obtain the source simply clone our git
-
-```bash
-git clone https://git.qoto.org/fedipage/fedipage
-```
-
-## Trigger post deploy
-
-Typically every 5 minutes the server will call send-note automatically. However
-you can trigger it manually with the following code.
-
-```
-curl -G -X POST --data-urlencode token="<token>" https://<your domain>/send-note
-```
-Keep in mind the POLL_MILLISECONDS env variable acts as a guard against this
-being called too often. You will need to set this to a low value for debugging.
-
-## Release Process
-
-Make sure the version is correct in the following locations:
-* `/api/nodeinfo/2.1.ts`
-* `/CHANGELOG.md`
-
-Consider updating dependencies in `/package.json`.
-
-Optionally: Create a news post announcing the release of the new version.
-
-Now just create the git tag for the new version and push it.
-
-```bash
-git tag -a "v1.0.0" "Release version 1.0.0"
-git push origin v1.0.0:v1.0.0
-```
-
-Now bump all the versions to the next patch version in the two files listed
-above and push that to master.
+Please see the `CONTRIBUTING.md` file for instructions regarding development and contribution.

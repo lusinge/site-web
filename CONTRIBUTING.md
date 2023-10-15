@@ -12,15 +12,42 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Development
 
-### Testing
-
-In order to perform tests identical in nature to the integration tests we run then simply ensure you gave gitlab-runner installed then run the following command.
+To obtain the source simply clone our git
 
 ```bash
-gitlab-runner exec docker test
+git clone https://git.qoto.org/fedipage/fedipage
 ```
 
-Keep in mind this will run the tests on your local copy of the master branch so any changes not committed locally will be missed when testing.
+### Trigger post deploy
+
+Typically every 5 minutes the server will call send-note automatically. However
+you can trigger it manually with the following code.
+
+```
+curl -G -X POST --data-urlencode token="<token>" https://<your domain>/send-note
+```
+Keep in mind the POLL_MILLISECONDS env variable acts as a guard against this
+being called too often. You will need to set this to a low value for debugging.
+
+### Release Process
+
+Make sure the version is correct in the following locations:
+* `/api/nodeinfo/2.1.ts`
+* `/CHANGELOG.md`
+
+Consider updating dependencies in `/package.json`.
+
+Optionally: Create a news post announcing the release of the new version.
+
+Now just create the git tag for the new version and push it.
+
+```bash
+git tag -a "v1.0.0" "Release version 1.0.0"
+git push origin v1.0.0:v1.0.0
+```
+
+Now bump all the versions to the next patch version in the two files listed
+above and push that to master.
 
 ### Commit Message Format
 
