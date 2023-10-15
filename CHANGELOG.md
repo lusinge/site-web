@@ -7,6 +7,8 @@
     upstream here without needing to worry about conflicts due to content.
 * Fixed links at the bottom of posts that direct people to the gitlab page for
     the post.
+* Card shortcodes no longer need to be linkable. By leaving the url argument as
+    an empty string it will not render as a clickable link.
 
 ## 1.1.0
 
