@@ -9,6 +9,7 @@
     the post.
 * Card shortcodes no longer need to be linkable. By leaving the url argument as
     an empty string it will not render as a clickable link.
+* Fixed microblog submenu so it no longer extends past bottom of the page.
 
 ## 1.1.0
 

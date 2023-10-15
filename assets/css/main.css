@@ -609,7 +609,7 @@ section > .container > .row > .col {
 }
 
 /* Adjusts vertical distance for microblog dynamically */
-.microblog {
+/* .microblog {
   display: flex;
   flex-direction: column;
   height: 80%;
@@ -617,7 +617,7 @@ section > .container > .row > .col {
 
 .fill-vert {
   height: 100%;
-}
+} */
 
 .microblog .more {
   padding-right: 1em;
