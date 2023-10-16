@@ -9,6 +9,7 @@ defaultContentLanguageInSubdir = false
 
 enableRobotsTXT = true
 uglyURLs=false
+pluralizelisttitles=false
 
 [services.rss]
 limit = 50

@@ -10,6 +10,9 @@
 * Card shortcodes no longer need to be linkable. By leaving the url argument as
     an empty string it will not render as a clickable link.
 * Fixed microblog submenu so it no longer extends past bottom of the page.
+* Made `/layout/top_list_generic` site generic, it no longer mentions Fedipage.
+* Made the `/layout/menu/html` dynamic so now there is no need to edit it when
+    you customize sections.
 
 ## 1.1.0
 
