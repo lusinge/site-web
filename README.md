@@ -4,6 +4,26 @@ This project (excluding post content itself) is released under the Apache Licens
 
 # Fresh install
 
+## Changing Default Sections
+
+By default this site contains the following three blog sections: `news`,
+`projects`, and `resource`. Unfortunately the sections arent easily configurable
+just yet.
+
+### Renaming
+
+1. Change the name of the `/layouts/partials/top_list_<section>.html` to the
+new name and edit its content.
+1. Modify `./clean-build.cjs` at the bottom of the file to include the name of
+the new section.
+1. Rename directory `./layouts/<section>` to the name of the new section.
+1. Edit `./layouts/<section>/list.html` to point to the new section partial
+(first line).
+1. Change or create a new directory for section content under
+`/content/<new_section>`
+1. Change `/layouts/partials/menu.html` to use the new name and url to the new
+section.
+
 ## Update /hugo.toml
 
 You can use `/hugo.toml.example` as a starting point. Copy this file (dont move
