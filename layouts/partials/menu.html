@@ -14,9 +14,11 @@
 		</div>
 		<div class="navbar__items navbar__items--right">
 			<a class="navbar__item navbar__link" href="/">Home</a>
-			{{ range .Site.Sections }}
-			  <a class="navbar__item navbar__link" href="{{ .Permalink }}">{{ .Title }}</a>
-			{{ end }}
+			{{ range (where .Site.Pages "Section" "") }}
+		     {{ range .Pages }}
+						<a class="navbar__item navbar__link" href="{{ .Permalink }}">{{ .Title }}</a>
+		     {{ end }}
+		  {{ end }}
 			<a class="displayOnlyInLargeViewport_16CL button button--primary" href={{ site.Params.repoUrl }} style="margin:0;margin-left:15px">MY GIT →</a>
 		</div>
 	</div>
@@ -34,11 +36,13 @@
 					<li class="menu__list-item">
 						<a class="menu__link" href="/">Home</a>
 					</li>
-					{{ range .Site.Sections }}
-						<li class="menu__list-item">
-							<a class="menu__link" href="{{ .Permalink }}">{{ .Title }}</a>
-						</li>
-					{{ end }}
+					{{ range (where .Site.Pages "Section" "") }}
+				     {{ range .Pages }}
+								<li class="menu__list-item">
+									<a class="menu__link" href="{{ .Permalink }}">{{ .Title }}</a>
+								</li>
+				     {{ end }}
+				  {{ end }}
 					<div style="margin:5px;margin-top:15px"></div>
 					<a class="button button--block button--primary" href={{ site.Params.repoUrl }}>MY GIT →</a>
 				</ul>
