@@ -16,6 +16,9 @@
 * Created type `page` and moved `/content/_index.md` to be that type. This
     breaks backwards compatibility therefore we must bump major version
     according to semantic versioning.
+* Minor improvement to CSS so `page` types dont get clipped by the menu header.
+* Added a container shortcode for use on `page` types to get left and right
+    margins.
 
 ## 1.1.0
 

@@ -1964,7 +1964,7 @@ hr:after {
 
 :root {
     --ifm-navbar-background-color: var(--ifm-background-surface-color);
-    --ifm-navbar-height: 3.75rem;
+    --ifm-navbar-height: 4.75rem;
     --ifm-navbar-item-padding-horizontal: 1rem;
     --ifm-navbar-item-padding-vertical: 0.25rem;
     --ifm-navbar-link-color: var(--ifm-font-base-color);
@@ -3461,7 +3461,7 @@ body > div {
 }
 .main-wrapper {
     flex: 1 0 auto;
-    margin-top: var(--ifm-navbar-height);
+    margin-top: calc(1em + var(--ifm-navbar-height));
 }
 @media (min-width:301px) {
     .sidebar_25T_ {
