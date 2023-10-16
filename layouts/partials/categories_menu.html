@@ -6,19 +6,18 @@
   <!-- {{ $taxonomy := .Data.Plural }} -->
   {{ $taxonomy := "tags" }}
   {{/* Get sections where one or more pages has one or more terms in the current taxonomy. */}}
-  {{ $sections := slice }}
+  {{ $terms := slice }}
   {{ range $term, $weightedPages := index site.Taxonomies $taxonomy }}
-    {{ range $weightedPages }}
-      {{ $sections = $sections | append .CurrentSection | uniq | sort }}
-    {{ end }}
-  {{ end }}
-  {{/* List pages by term by section. */}}
-  {{ range $section := (where $sections ".Path" $hereSection) }}
-    {{ range $term, $weightedPages := index site.Taxonomies $taxonomy }}
-      {{ $termPage := site.GetPage path.Join $taxonomy $term }}
-      {{ with where $weightedPages "Section" $section.Path }}
-        <a href="{{ $termPage.RelPermalink }}" class='menu-item' data-slug='{{ $termPage.LinkTitle }}' title="All pages with tag <i>{{ $termPage.LinkTitle }}</i>">{{ $termPage.LinkTitle }}</a>
+    {{ range $weightedPage := $weightedPages }}
+      {{ if (eq $hereSection $weightedPage.Section) }}
+        {{ $terms = $terms | append $term | uniq }}
       {{ end }}
     {{ end }}
+  {{ end }}
+
+  {{/* List pages by term by section. */}}
+  {{ range $term := $terms }}
+    {{ $termPage := site.GetPage path.Join $taxonomy $term }}
+    <a href="{{ $termPage.RelPermalink }}" class='menu-item' data-slug='{{ $termPage.LinkTitle }}' title="All pages with tag <i>{{ $termPage.LinkTitle }}</i>">{{ $termPage.LinkTitle }}</a>
   {{ end }}
 </nav>
