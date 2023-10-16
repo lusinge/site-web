@@ -22,6 +22,7 @@
 * Adding new sections is now almost completely dynamic and requires much less
     modification of code. See updated `README.me`.
 * Added KaTeX support for rendering Latex and math.
+* Added support for PseudocodeJS for rendering beautiful, standard, pseudocode.
 
 ## 1.1.0
 

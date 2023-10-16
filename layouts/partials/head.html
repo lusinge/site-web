@@ -123,8 +123,9 @@
   {{ $ghost := resources.Get "css/ghost.css" }}
   {{ $glyph := resources.Get "css/glyphicons.css" }}
   {{ $katex := resources.Get "css/katex.css" }}
+  {{ $pseudocode := resources.Get "css/pseudocode.css" }}
 
-  {{ $css := slice $main $goblin $fa $primer $ghost $glyph $katex | resources.Concat "css/bundle.css"  }}
+  {{ $css := slice $main $goblin $fa $primer $ghost $glyph $katex $pseudocode | resources.Concat "css/bundle.css"  }}
   {{ $minifiedCSS := $css | minify}}
   {{ $minifiedCSS.Content | safeCSS }}
 
@@ -136,6 +137,7 @@
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end -}}
 
+<script src="/javascripts/pseudocode.js"></script>
 <script src="/javascripts/katex.js"></script>
 <script src="/javascripts/katex-auto-render.js"></script>
 <script src="/javascripts/jquery.js"></script>
@@ -152,6 +154,26 @@ document.addEventListener("DOMContentLoaded", function() {
       // • rendering keys, e.g.:
       throwOnError : false
     });
+
+    var blocks = document.getElementsByClassName("pseudocode");
+    for(var blockId = 0; blockId < blocks.length; blockId++) {
+      var block = blocks[blockId];
+
+      var code = block.textContent;
+      var options = {
+        lineNumber: true
+      };
+
+      var outputEl = document.createElement('div');
+      outputEl.className += " pseudocode-out";
+      block.parentNode.insertBefore(outputEl, block.nextSibling);
+
+      pseudocode.render(code, outputEl, options);
+    }
+
+    while( blocks[0]) {
+      blocks[0].parentNode.removeChild(blocks[0]);
+    }
 });
 </script>
 
