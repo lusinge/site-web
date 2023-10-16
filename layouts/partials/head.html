@@ -122,8 +122,9 @@
   {{ $primer := resources.Get "css/primer.css" }}
   {{ $ghost := resources.Get "css/ghost.css" }}
   {{ $glyph := resources.Get "css/glyphicons.css" }}
+  {{ $katex := resources.Get "css/katex.css" }}
 
-  {{ $css := slice $main $goblin $fa $primer $ghost $glyph | resources.Concat "css/bundle.css"  }}
+  {{ $css := slice $main $goblin $fa $primer $ghost $glyph $katex | resources.Concat "css/bundle.css"  }}
   {{ $minifiedCSS := $css | minify}}
   {{ $minifiedCSS.Content | safeCSS }}
 
@@ -135,14 +136,23 @@
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end -}}
 
+<script src="/javascripts/katex.js"></script>
+<script src="/javascripts/katex-auto-render.js"></script>
+<script src="/javascripts/jquery.js"></script>
+<script src="/javascripts/head.js"></script>
 <script>
-{{ $jqueryJS := resources.Get "javascripts/jquery.js" | minify }}
-{{ $jqueryJS.Content | safeJS }}
+document.addEventListener("DOMContentLoaded", function() {
+    renderMathInElement(document.body, {
+      // customised options
+      // • auto-render specific keys, e.g.:
+      delimiters: [
+          {left: '$$', right: '$$', display: true},
+          {left: '\\(', right: '\\)', display: false},
+      ],
+      // • rendering keys, e.g.:
+      throwOnError : false
+    });
+});
 </script>
 
-  <script>
-let type='{{.Kind}}';
-{{ $headJS := resources.Get "javascripts/head.js" | minify }}
-{{ $headJS.Content | safeJS }}
-  </script>
 </head>

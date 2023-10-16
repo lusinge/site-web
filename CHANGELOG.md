@@ -21,6 +21,7 @@
     margins.
 * Adding new sections is now almost completely dynamic and requires much less
     modification of code. See updated `README.me`.
+* Added KaTeX support for rendering Latex and math.
 
 ## 1.1.0
 
