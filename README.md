@@ -12,14 +12,8 @@ just yet.
 
 ### Renaming
 
-1. Change the name of the `/layouts/partials/top_list_<section>.html` to the
-new name and edit its content.
 1. Modify `./clean-build.cjs` at the bottom of the file to include the name of
 the new section.
-1. Rename directory `./layouts/<section>` to the name of the new section, or
-    create a new directory using an existing directory as a template.
-1. Edit `./layouts/<section>/list.html` to point to the new section partial
-(first line).
 1. Change or create a new directory for section content under
 `/content/<new_section>`
 

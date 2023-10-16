@@ -19,6 +19,8 @@
 * Minor improvement to CSS so `page` types dont get clipped by the menu header.
 * Added a container shortcode for use on `page` types to get left and right
     margins.
+* Adding new sections is now almost completely dynamic and requires much less
+    modification of code. See updated `README.me`.
 
 ## 1.1.0
 
