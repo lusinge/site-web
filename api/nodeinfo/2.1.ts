@@ -9,7 +9,7 @@ export default function (req: VercelRequest, res: VercelResponse) {
       "name": "Fedipage",
       "repository": "https://git.qoto.org/fedipage/fedipage",
       "homepage": "https://fedipage.com/",
-      "version": "1.1.1"
+      "version": "2.0.0"
     },
     "protocols": [
       "activitypub"

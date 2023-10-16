@@ -1,6 +1,6 @@
 # Changelog
 
-## 1.1.1
+## 2.0.0
 
 * Removed content folder and moved out the Fedipage site into a separate repo.
     This should make it easier for people who use this site to update from the
@@ -13,7 +13,9 @@
 * Made `/layout/top_list_generic` site generic, it no longer mentions Fedipage.
 * Made the `/layout/menu/html` dynamic so now there is no need to edit it when
     you customize sections.
-* Created type `page` and moved `/content/_index.md` to be that type.
+* Created type `page` and moved `/content/_index.md` to be that type. This
+    breaks backwards compatibility therefore we must bump major version
+    according to semantic versioning.
 
 ## 1.1.0
 
