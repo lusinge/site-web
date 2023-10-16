@@ -13,6 +13,7 @@
 * Made `/layout/top_list_generic` site generic, it no longer mentions Fedipage.
 * Made the `/layout/menu/html` dynamic so now there is no need to edit it when
     you customize sections.
+* Created type `page` and moved `/content/_index.md` to be that type.
 
 ## 1.1.0
 
