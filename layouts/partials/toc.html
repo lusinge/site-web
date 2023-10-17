@@ -1,1 +1,1 @@
-{{ .TableOfContents }}
+{{- if isset .Params "toc" }}{{ .TableOfContents }}{{ end}}

@@ -3,7 +3,7 @@
     <article class='post'>
       {{ partial "post_header_single.html" . }}
       <section class='post-content'>
-        {{ if isset .Params "toc" }}{{ .TableOfContents }}{{ end}}
+        {{ partial "toc.html" . }}
         {{ .Content }}
         {{ if eq .Section "resource" }}{{ partial "backlinks.html" . }}{{ end }}
         {{ partial "article_footer.html" . }}
