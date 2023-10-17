@@ -662,3 +662,14 @@ section > .container > .row > .col {
   height: calc(1em + var(--ifm-navbar-height)); /* fixed header height*/
   margin: calc(-1em * (1em + var(--ifm-navbar-height))) 0 0; /* negative fixed header height */
 }
+
+/* Adjusting cal-heatmap stuff */
+
+div#ch-tooltip {
+  height: 2em;
+}
+
+.center.cal-heatmap {
+  justify-content: center;
+  display: flex;
+}

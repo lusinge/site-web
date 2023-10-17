@@ -27,6 +27,8 @@
 * Fixed a bug where backslashes in the summary of a post could break ActivityPub
     JSON endpoints.
 * Fixed the paginator next and previous links, they were assigned backwards.
+* Added a shortcode to render a GitLab based activity heatmap calander.
+* Added `cal-heatmap` support along with `D3.js` and several related extensions.
 
 ## 1.1.0
 

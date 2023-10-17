@@ -42,3 +42,4 @@ siteEmail="the@jeffreyfreeman.me"
 postHashtags=["Fediverse", "ActivityPub", "MastoAdmin"]
 renderDefaultHashtags=true
 renderArticleHashtags=true
+gitlabHeatmapData="https://git.qoto.org/users/freemo/calendar.json"

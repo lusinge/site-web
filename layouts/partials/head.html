@@ -132,10 +132,12 @@
     {{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}
   }
 </style>
+<link rel="stylesheet" href="/javascripts/cal-heatmap/cal-heatmap.css">
 {{ range .AlternativeOutputFormats -}}
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end -}}
 
+<script type="text/javascript" src="/javascripts/cal-heatmap/cal-heatmap.js"></script>
 <script type="text/javascript" src="/javascripts/pseudocode.js"></script>
 <script type="text/javascript" src="/javascripts/jquery.js"></script>
 <script type="text/javascript" src="/javascripts/head.js"></script>
@@ -175,5 +177,102 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 </script>
 <script type="text/javascript" src="/javascripts/mathjax/tex-chtml-full.js"></script>
+
+<script type="text/javascript" src="/javascripts/d3.js"></script>
+<script type="text/javascript" src="/javascripts/popperjs/popper.js"></script>
+<script type="text/javascript" src="/javascripts/cal-heatmap/cal-heatmap.js"></script>
+<script type="text/javascript" src="/javascripts/cal-heatmap/plugins/Legend.js"></script>
+<script type="text/javascript" src="/javascripts/cal-heatmap/plugins/LegendLite.js"></script>
+<script type="text/javascript" src="/javascripts/cal-heatmap/plugins/Tooltip.js"></script>
+<script type="text/javascript" src="/javascripts/cal-heatmap/plugins/CalendarLabel.js"></script>
+<script type="module">
+
+
+  var getJSON = function(url, callback) {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, false);
+      xhr.setRequestHeader("Accept", 'application/json');
+      xhr.setRequestHeader("Access-Control-Allow-Origin", '*');
+      xhr.send();
+      return xhr.response
+  };
+
+
+  // Get the data as a String of JSON
+  const data = JSON.parse(getJSON('{{ .Site.Params.gitlabHeatmapData }}'));
+
+  // Convert string to JSON
+  const dataMap = new Map(Object.entries(data));
+
+  //convert JSON to an array of maps
+  const newData = []
+  for( let [entry, value] of dataMap ) {
+    newData.push({"date": entry, "value": value});
+  }
+
+  const d = new Date();
+  const lastYear = d.setMonth(d.getMonth() - 11);
+
+  // Now render it.
+  const cal = new CalHeatmap();
+  cal.paint({
+    data: {
+      source: newData,
+      type: 'json',
+      x: 'date',
+      y: 'value',
+      groupY: 'max',
+    },
+    date: { start: lastYear },
+    range: 12,
+    scale: {
+      color: {
+        type: 'threshold',
+        range: ['#0000FF', '#3000CF', '#60009F', '#90006F', '#C0003F', '#F0000F', '#FF0000'],
+        domain: [2, 3, 5, 8, 13, 21],
+      },
+    },
+    domain: {
+      type: 'month',
+      gutter: 4,
+      label: { text: 'MMM', textAlign: 'start', position: 'top' },
+    },
+    subDomain: { type: 'ghDay', radius: 2, width: 11, height: 11, gutter: 4 },
+  },
+  [
+    [
+      Legend,
+      {
+        tickSize: 1,
+        width: 100,
+        itemSelector: '#cal-heatmap-legend',
+        label: 'Activity per day',
+      },
+    ],
+    [
+      Tooltip,
+      {
+        text: function (date, value, dayjsDate) {
+          return (
+            (value ? value : 'No') +
+            ' contributions on ' +
+            dayjsDate.format('dddd, MMMM D, YYYY')
+          );
+        },
+      },
+    ],
+    [
+      CalendarLabel,
+      {
+        width: 30,
+        textAlign: 'start',
+        text: () => dayjs.weekdaysShort().map((d, i) => (i % 2 == 0 ? '' : d)),
+        padding: [25, 0, 0, 0],
+      },
+    ],
+  ]
+);
+
+</script>
 
 </head>
