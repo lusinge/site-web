@@ -29,6 +29,7 @@
 * Fixed the paginator next and previous links, they were assigned backwards.
 * Added a shortcode to render a GitLab based activity heatmap calander.
 * Added `cal-heatmap` support along with `D3.js` and several related extensions.
+* Opened up CORS headers since a static site shouldnt need any CORS protections.
 
 ## 1.1.0
 
