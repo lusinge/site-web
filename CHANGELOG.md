@@ -26,6 +26,7 @@
 * Table of contents will now render if frontmatter `toc` is set to `true`.
 * Fixed a bug where backslashes in the summary of a post could break ActivityPub
     JSON endpoints.
+* Fixed the paginator next and previous links, they were assigned backwards.
 
 ## 1.1.0
 

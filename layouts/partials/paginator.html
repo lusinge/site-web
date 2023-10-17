@@ -1,7 +1,7 @@
 <div class='extra-pagination inner'>
   <nav class='pagination' role='pagination'>
-    {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}" class="newer-posts">← Newer Posts</a>{{ end }}
+    {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}" class="newer-posts">← Newer Posts</a>{{ end }}
     <span class='page-number'>Page {{ .Paginator.PageNumber }} of {{ .Paginator.TotalPages }}</span>
-    {{ if .Paginator.HasPrev }}<a href="{{ .Paginator.Prev.URL }}" class="older-posts">Older Posts →</a>{{ end }}
+    {{ if .Paginator.HasNext }}<a href="{{ .Paginator.Next.URL }}" class="older-posts">Older Posts →</a>{{ end }}
   </nav>
 </div>
