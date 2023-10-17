@@ -3,6 +3,7 @@
 {{ range $index, $element := $paginator.Pages }}
   <article class='post'>
     {{ partial "post_header_list.html" . }}
+    {{ partial "toc.html" . }}
     <section class='post-content'>
       {{.Content }}
     </section>

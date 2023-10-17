@@ -23,6 +23,7 @@
     modification of code. See updated `README.me`.
 * Added MathJax support for rendering Latex and math.
 * Added support for PseudocodeJS for rendering beautiful, standard, pseudocode.
+* Table of contents will now render if frontmatter `toc` is set to `true`.
 
 ## 1.1.0
 

@@ -629,3 +629,36 @@ section > .container > .row > .col {
     width: 100%;
   }
 }
+
+/* Styling for table of contents */
+
+#TableOfContents {
+    border: 1px black solid;
+    display: inline-block;
+    padding-right: 40px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    background-color: floralwhite;
+    width: 400px;
+    margin-left: 40px;
+    margin-bottom: 10px;
+}
+
+#TableOfContents ul {
+    padding-inline-start: 40px;
+}
+
+#TableOfContents ul,
+#TableOfContents ol {
+    padding-left: 40px;
+    margin-bottom: 10px;
+}
+
+/* Adjusts links within the same page so as to not be covered by the header menu */
+
+:target::before {
+  content: "";
+  display: block;
+  height: calc(1em + var(--ifm-navbar-height)); /* fixed header height*/
+  margin: calc(-1em * (1em + var(--ifm-navbar-height))) 0 0; /* negative fixed header height */
+}
