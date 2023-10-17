@@ -536,6 +536,7 @@ background: transparent;
 .ButtonTabs > .nav-tabs > .button,
 .ButtonTabs > .nav-tabs > .button.is-active {
   box-shadow: none;
+  white-space: normal;
 }
 
 /* highlight styles */
@@ -672,4 +673,66 @@ div#ch-tooltip {
 .center.cal-heatmap {
   justify-content: center;
   display: flex;
+}
+
+/* Adding pretty quote boxes */
+/* @import url('https://fonts.googleapis.com/css?family=Special+Elite'); */
+
+.quote-box {
+  text-align: left;
+  /* padding-right: 5em; */
+  /* font-family: 'Special Elite', cursive; */
+
+	color: #3f3f5a;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+.quote-box > blockquote {
+	font-weight: 100;
+	font-size: 2rem;
+	max-width: 600px;
+	line-height: 1.4;
+	position: relative;
+	padding: .5rem;
+  border-left: none;
+
+  margin: auto;
+}
+
+.quote-box > blockquote:before,
+.quote-box > blockquote:after {
+	position: absolute;
+	color: #ccc;
+	font-size: 8rem;
+	width: 4rem;
+	height: 4rem;
+}
+
+.quote-box > blockquote:before {
+	content: '“';
+	left: -5rem;
+	top: -2rem;
+}
+
+.quote-box > blockquote:after {
+	content: '”';
+	right: -5rem;
+	bottom: 1rem;
+}
+
+.quote-box > cite {
+	line-height: 3;
+	text-align: right;
+  font-size: 2rem;
+  margin: auto;
+}
+
+.quote-box > cite:before {
+	content: '- ';
+  font-size: 2rem;
 }

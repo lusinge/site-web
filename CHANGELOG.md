@@ -30,6 +30,9 @@
 * Added a shortcode to render a GitLab based activity heatmap calander.
 * Added `cal-heatmap` support along with `D3.js` and several related extensions.
 * Opened up CORS headers since a static site shouldnt need any CORS protections.
+* Added a `quote-box` shortcode useful for displaying pretty quotes.
+* Improved the `tabs` shortcode so the title can be left off and it wont render
+    a black empty square.
 
 ## 1.1.0
 
