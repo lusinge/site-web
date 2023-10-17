@@ -1,3 +1,10 @@
+{{- $summaryClean := "" }}
+{{- if .Summary }}
+{{- $summaryClean = .Summary }}
+{{- $summaryClean = replace $summaryClean "\n" "<br>" }}
+{{- $summaryClean = replace $summaryClean "\r" "" }}
+{{- $summaryClean = replace $summaryClean "\\" "\\\\" }}
+{{- end }}
 {
   {{ partial "context.ajson" . }},
   "id": "{{ .Permalink }}",
@@ -12,7 +19,7 @@
   "sensitive": false,
   "atomUri": "{{ .Permalink }}",
   "inReplyToAtomUri": null,
-  "content": {{ printf "\"" | safeHTML }}<b>{{.Title}}</b>{{ if .Summary }}<br>{{ replace (replace .Summary "\n" "<br>") "\r" "" | safeHTML}}{{ end }}<br><br>Read more here:<br><a href='{{.Permalink}}'>{{.Permalink}}</a><br><br>{{ if .Site.Params.renderArticleHashtags }}{{ if .Params.tags }}{{ range $indexArticleTags, $elementArticleTag := .Params.tags }}{{ if ne $indexArticleTags 0 }} {{ end }}<a href='{{ site.BaseURL }}tags/{{ $elementArticleTag | lower }}' class='mention hashtag' rel='tag'>#<span>{{ $elementArticleTag }}</span></a>{{ end }}{{ end }}{{ end }} {{ if .Site.Params.renderDefaultHashtags }}{{ if .Site.Params.postHashtags }}{{ range $indexTags, $elementTag := .Site.Params.postHashtags }}{{ if ne $indexTags 0 }} {{ end }}<a href='#' class='mention hashtag' rel='tag'>#<span>{{ $elementTag }}</span></a>{{ end }}{{ end }}{{ end }}{{ printf "\"" | safeHTML }},
+  "content": {{ printf "\"" | safeHTML }}<b>{{.Title}}</b>{{ if .Summary }}<br>{{ $summaryClean | safeHTML}}{{ end }}<br><br>Read more here:<br><a href='{{.Permalink}}'>{{.Permalink}}</a><br><br>{{ if .Site.Params.renderArticleHashtags }}{{ if .Params.tags }}{{ range $indexArticleTags, $elementArticleTag := .Params.tags }}{{ if ne $indexArticleTags 0 }} {{ end }}<a href='{{ site.BaseURL }}tags/{{ $elementArticleTag | lower }}' class='mention hashtag' rel='tag'>#<span>{{ $elementArticleTag }}</span></a>{{ end }}{{ end }}{{ end }} {{ if .Site.Params.renderDefaultHashtags }}{{ if .Site.Params.postHashtags }}{{ range $indexTags, $elementTag := .Site.Params.postHashtags }}{{ if ne $indexTags 0 }} {{ end }}<a href='#' class='mention hashtag' rel='tag'>#<span>{{ $elementTag }}</span></a>{{ end }}{{ end }}{{ end }}{{ printf "\"" | safeHTML }},
   "attachment": [],
   {{ if (or (and .Site.Params.postHashtags .Site.Params.renderDefaultHashtags) (and .Params.tags .Site.Params.renderArticleHashtags)) }}
   "tag": [

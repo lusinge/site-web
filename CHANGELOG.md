@@ -24,6 +24,8 @@
 * Added MathJax support for rendering Latex and math.
 * Added support for PseudocodeJS for rendering beautiful, standard, pseudocode.
 * Table of contents will now render if frontmatter `toc` is set to `true`.
+* Fixed a bug where backslashes in the summary of a post could break ActivityPub
+    JSON endpoints.
 
 ## 1.1.0
 
