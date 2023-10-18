@@ -1,5 +1,7 @@
 # Changelog
 
+## 2.0.1
+
 ## 2.0.0
 
 * Removed content folder and moved out the Fedipage site into a separate repo.
