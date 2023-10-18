@@ -12,10 +12,12 @@ inner: description
       <h3 style="margin:0;text-transform:capitalize">{{ .Get 0 }}</h3>
       <small>{{ .Inner }}</small>
     </div>
+    {{- if (or (.Get 2) (.Get 3) )}}
     <hr style="margin:15px 0 10px 0">
     <div style="display:flex;flex-direction:row;justify-content:space-between;padding:0 15px 10px 15px;font-size:0.8em">
       <div>{{ .Get 2 }}</div>
       <div>{{ .Get 3 }}</div>
     </div>
+    {{- end }}
   </a>
 </div>

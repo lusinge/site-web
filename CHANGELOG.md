@@ -2,6 +2,9 @@
 
 ## 2.0.1
 
+* Card shortcode will not longer render the horizontal rule when there is no
+    bottom text to render.
+
 ## 2.0.0
 
 * Removed content folder and moved out the Fedipage site into a separate repo.
