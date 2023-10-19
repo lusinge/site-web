@@ -740,8 +740,9 @@ div#ch-tooltip {
 /* Infofield css */
 
 .info-field h2 {
-  font-size: 1em;
+  font-size: 1.2em;
   border-bottom-style: double;
+  font-weight: bold;
 }
 
 .info-field h3 {
