@@ -767,6 +767,7 @@ div#ch-tooltip {
   grid-area: key;
   position: relative;
   overflow: hidden;
+  white-space: nowrap;
 }
 
 .key::after {
@@ -775,4 +776,15 @@ div#ch-tooltip {
   ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
   position: absolute;
   text-align: right;
+}
+
+@media (max-width:992px) {
+  .info-field > div {
+    width: 100%;
+  }
+
+  .entry {
+    display: block;
+    margin-bottom: 1em;
+  }
 }
