@@ -746,7 +746,8 @@ div#ch-tooltip {
 
 .info-field h3 {
   font-size: 1em;
-  bor
+  border-bottom-style: ridge;
+}
 
 .entry {
   display: grid;
