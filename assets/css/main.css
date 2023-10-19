@@ -738,10 +738,15 @@ div#ch-tooltip {
 }
 
 /* Infofield css */
+
 .info-field h2 {
   font-size: 1em;
-  border-bottom-style: ridge;
+  border-bottom-style: double;
 }
+
+.info-field h3 {
+  font-size: 1em;
+  bor
 
 .entry {
   display: grid;
