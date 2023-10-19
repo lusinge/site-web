@@ -1,9 +1,14 @@
 # Changelog
 
-## 2.0.1
+## 2.1.0
 
 * Card shortcode will not longer render the horizontal rule when there is no
     bottom text to render.
+* Added several shortcodes and CSS for rendering info-fields, for example for
+    contact info. See `info-entry.html`, `info-field.html`, `info-key.html` and
+    `info-value.html` under the `/layouts/shortcodes/` directory.
+* Added the `container-split` short code which will split a container into two
+    columns.
 
 ## 2.0.0
 

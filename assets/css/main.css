@@ -736,3 +736,36 @@ div#ch-tooltip {
 	content: '- ';
   font-size: 2rem;
 }
+
+/* Infofield css */
+.info-field h2 {
+  font-size: 1em;
+  border-bottom-style: ridge;
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: auto max-content;
+  grid-template-areas: "key value";
+
+  align-items: end;
+  gap: 0 .25rem;
+}
+
+.value {
+  grid-area: value;
+}
+
+.key {
+  grid-area: key;
+  position: relative;
+  overflow: hidden;
+}
+
+.key::after {
+  content: " . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+  ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . "
+  ". . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . ";
+  position: absolute;
+  text-align: right;
+}
