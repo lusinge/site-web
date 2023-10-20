@@ -13,40 +13,17 @@
 			</div>
 		</div>
 		<div class="navbar__items navbar__items--right">
-			<a class="navbar__item navbar__link" href="/">Home</a>
-			{{ range (where .Site.Pages "Section" "") }}
-		     {{ range .Pages }}
-						<a class="navbar__item navbar__link" href="{{ .Permalink }}">{{ .Title }}</a>
-		     {{ end }}
-		  {{ end }}
-			<a class="displayOnlyInLargeViewport_16CL button button--primary" href={{ site.Params.repoUrl }} style="margin:0;margin-left:15px">MY GIT →</a>
-		</div>
-	</div>
-	<div role="presentation" class="navbar-sidebar__backdrop"></div>
-	<div class="navbar-sidebar">
-		<div class="navbar-sidebar__brand">
-			<a aria-current="page" class="navbar__brand active" href="/">
-				<img class="navbar__logo logo--light" src="/images/logo-header-light.png" alt="Goblin">
-				<img class="navbar__logo logo--dark" src="/images/logo-header-dark.png" alt="Goblin">
-			</a>
-		</div>
-		<div class="navbar-sidebar__items">
-			<div class="menu">
-				<ul class="menu__list">
-					<li class="menu__list-item">
-						<a class="menu__link" href="/">Home</a>
-					</li>
-					{{ range (where .Site.Pages "Section" "") }}
-				     {{ range .Pages }}
-								<li class="menu__list-item">
-									<a class="menu__link" href="{{ .Permalink }}">{{ .Title }}</a>
-								</li>
-				     {{ end }}
-				  {{ end }}
-					<div style="margin:5px;margin-top:15px"></div>
-					<a class="button button--block button--primary" href={{ site.Params.repoUrl }}>MY GIT →</a>
-				</ul>
-			</div>
+			<input class="menu-btn" type="checkbox" id="menu-btn" />
+		  <div class="menu-icon"><label for="menu-btn"><span class="navicon"></span></label></div>
+			<ul class="navbar-menu">
+				<li class="navbar-menu-item"><a class="navbar__item navbar__link" href="/">Home</a></li>
+				{{ range (where .Site.Pages "Section" "") }}
+			     {{ range .Pages }}
+							<li  class="navbar-menu-item"><a class="navbar__item navbar__link" href="{{ .Permalink }}">{{ .Title }}</a></li>
+			     {{ end }}
+			  {{ end }}
+				<li  class="navbar-menu-item"><a class="displayOnlyInLargeViewport_16CL button button--primary" href={{ site.Params.repoUrl }}>MY GIT →</a></li>
+			</ul>
 		</div>
 	</div>
 </nav>

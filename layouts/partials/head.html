@@ -116,23 +116,21 @@
 <link href="/manifest.json" rel="manifest">
 <link rel="home" href="{{.Site.BaseURL}}">
 <style>
-  {{ $main := resources.Get "css/main.css" }}
-  {{ $goblin := resources.Get "css/goblin.css" }}
-  {{ $fa := resources.Get "css/fontawesome.css" }}
-  {{ $primer := resources.Get "css/primer.css" }}
-  {{ $ghost := resources.Get "css/ghost.css" }}
-  {{ $glyph := resources.Get "css/glyphicons.css" }}
-  {{ $pseudocode := resources.Get "css/pseudocode.css" }}
-
-  {{ $css := slice $main $goblin $fa $primer $ghost $glyph $pseudocode | resources.Concat "css/bundle.css"  }}
-  {{ $minifiedCSS := $css | minify}}
-  {{ $minifiedCSS.Content | safeCSS }}
-
   header.with-background {
     {{ if .Params.image_header }}background-image: url('{{ .Params.image_header}}');{{ end }}
   }
 </style>
+
+<link rel="stylesheet" href="/css/goblin.css">
+<link rel="stylesheet" href="/css/fontawesome.css">
+<link rel="stylesheet" href="/css/primer.css">
+<!-- <link rel="stylesheet" href="/css/ghost.css"> -->
+<link rel="stylesheet" href="/css/flex.css">
+<link rel="stylesheet" href="/css/glyphicons.css">
+<link rel="stylesheet" href="/css/pseudocode.css">
 <link rel="stylesheet" href="/javascripts/cal-heatmap/cal-heatmap.css">
+<link rel="stylesheet" href="/css/main.css">
+
 {{ range .AlternativeOutputFormats -}}
 <link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink | safeURL }}">
 {{ end -}}
