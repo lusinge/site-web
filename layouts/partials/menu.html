@@ -1,16 +1,10 @@
-<nav class="navbar navbar--light navbar--fixed-top">
+<nav class="navbar navbar--fixed-top">
 	<div class="navbar__inner">
-		<div class="navbar__items navbar__items--left navbarItems_1xGM">
+		<div class="navbar__items navbar__items--left">
 			<a aria-current="page" class="navbar__brand active" href="/">
 				<img class="navbar__logo logo--light" src="/images/logo-header-light.png" alt="{{ site.Params.siteName }}">
 				<img class="navbar__logo logo--dark" src="/images/logo-header-dark.png" alt="{{ site.Params.siteName }}">
 			</a>
-			<div aria-label="Navigation bar toggle" class="navbar__toggle" role="button" tabindex="0">
-				<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30" role="img" focusable="false">
-					<title>Menu</title>
-					<path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path>
-				</svg>
-			</div>
 		</div>
 		<div class="navbar__items navbar__items--right">
 			<input class="menu-btn" type="checkbox" id="menu-btn" />
@@ -22,7 +16,7 @@
 							<li  class="navbar-menu-item"><a class="navbar__item navbar__link" href="{{ .Permalink }}">{{ .Title }}</a></li>
 			     {{ end }}
 			  {{ end }}
-				<li  class="navbar-menu-item"><a class="displayOnlyInLargeViewport_16CL button button--primary" href={{ site.Params.repoUrl }}>MY GIT →</a></li>
+				<li  class="navbar-menu-item"><a class="button button--primary" href={{ site.Params.repoUrl }}>MY GIT →</a></li>
 			</ul>
 		</div>
 	</div>
