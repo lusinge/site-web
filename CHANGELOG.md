@@ -1,5 +1,7 @@
 # Changelog
 
+## 2.1.1
+
 ## 2.1.0
 
 * Card shortcode will not longer render the horizontal rule when there is no
