@@ -2245,8 +2245,7 @@ div#ch-tooltip {
 }
 
 .quote-box > blockquote {
-	font-weight: 100;
-	font-size: 2rem;
+	font-size: 1.5rem;
 	max-width: 600px;
 	line-height: 1.4;
 	position: relative;
