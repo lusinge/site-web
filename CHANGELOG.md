@@ -14,6 +14,7 @@
 * Several root settings in `/hugo.toml` were being overridden such as `paginate`
     these should now be fixed.
 * Fixed the CSS so the `navbar` wont overflow under very low resolutions.
+* Fixed certain text inside `<p>` tags overflowing and distorting the layout.
 
 ## 2.0.0
 
