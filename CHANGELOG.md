@@ -16,6 +16,8 @@
 * Fixed the CSS so the `navbar` wont overflow under very low resolutions.
 * Fixed certain text inside `<p>` tags overflowing and distorting the layout.
 * Updated CSS for `blockquote` and fonts to be more readable.
+* Added additional parameter to `tab` shortcode allowing the `copy` button to be
+    hidden.
 
 ## 2.0.0
 

@@ -1,4 +1,4 @@
 <div class="codeBlockWrapper tab-pane" title="{{ .Get 0 }}">
-  <button type="button" aria-label="Copy code to clipboard" class="copyButton">Copy</button>
+  {{ if .Get 1 }}<button type="button" aria-label="Copy code to clipboard" class="copyButton">Copy</button>{{ end }}
   {{ .Inner }}
 </div>
