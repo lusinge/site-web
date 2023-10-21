@@ -1,6 +1,9 @@
 # Changelog
 
-## 2.1.1
+## 2.2.0
+
+* When a post has an `image_header` parameter this image is set as an attachment
+    to ActivityPub posts
 
 ## 2.1.0
 

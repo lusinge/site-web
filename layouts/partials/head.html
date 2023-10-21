@@ -31,8 +31,8 @@
   <meta property="twitter:card" content="summary_large_image">
 
   {{if .Params.image_header}}
-    <meta property="twitter:image" content="{{.Params.image_header}}">
-    <meta property="og:image" content="{{.Params.image_header}}">
+    <meta property="twitter:image" content="/{{.Params.image_header}}">
+    <meta property="og:image" content="/{{.Params.image_header}}">
   {{ else if .IsHome }}
     <meta property="twitter:image" content="/images/logo.png">
     <meta property="og:image" content="/images/logo.png">

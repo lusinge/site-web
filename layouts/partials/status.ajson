@@ -20,8 +20,9 @@
   "atomUri": "{{ .Permalink }}",
   "inReplyToAtomUri": null,
   "content": {{ printf "\"" | safeHTML }}<b>{{.Title}}</b>{{ if .Summary }}<br>{{ $summaryClean | safeHTML}}{{ end }}<br><br>Read more here:<br><a href='{{.Permalink}}'>{{.Permalink}}</a><br><br>{{ if .Site.Params.renderArticleHashtags }}{{ if .Params.tags }}{{ range $indexArticleTags, $elementArticleTag := .Params.tags }}{{ if ne $indexArticleTags 0 }} {{ end }}<a href='{{ site.BaseURL }}tags/{{ $elementArticleTag | lower }}' class='mention hashtag' rel='tag'>#<span>{{ $elementArticleTag }}</span></a>{{ end }}{{ end }}{{ end }} {{ if .Site.Params.renderDefaultHashtags }}{{ if .Site.Params.postHashtags }}{{ range $indexTags, $elementTag := .Site.Params.postHashtags }}{{ if ne $indexTags 0 }} {{ end }}<a href='#' class='mention hashtag' rel='tag'>#<span>{{ $elementTag }}</span></a>{{ end }}{{ end }}{{ end }}{{ printf "\"" | safeHTML }},
-  "attachment": [],
+  "attachment": []
   {{ if (or (and .Site.Params.postHashtags .Site.Params.renderDefaultHashtags) (and .Params.tags .Site.Params.renderArticleHashtags)) }}
+  ,
   "tag": [
     {{- if (and .Site.Params.postHashtags .Site.Params.renderDefaultHashtags) }}
     {{- range $indexTags, $elementTag := .Site.Params.postHashtags }}
@@ -46,4 +47,17 @@
     {{- end }}
     ]
   {{- end }}
+  {{ if .Params.image_header }}
+  ,
+  "attachment": [
+    {
+      "type": "Document",
+      "mediaType": "image/jpeg",
+      "url": "{{ .Site.BaseURL }}{{ .Params.image_header }}",
+      "name": null,
+      "blurhash": null
+    }
+  ]
+  {{ end }}
+
 }
