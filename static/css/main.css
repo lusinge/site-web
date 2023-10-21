@@ -603,6 +603,11 @@ p {
   overflow: auto;
 }
 
+section {
+  margin-top: 3em;
+  margin-bottom: 3em;
+}
+
 @-webkit-keyframes nprogress-spinner{
     0%{
         -webkit-transform:rotate(0)
@@ -2267,7 +2272,7 @@ div#ch-tooltip {
 
 .quote-box > blockquote:after {
 	content: '”';
-	right: -5rem;
+	right: 0;
 	bottom: 1rem;
 }
 

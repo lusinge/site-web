@@ -2,5 +2,5 @@
   <blockquote>
        {{ .Inner }}
   </blockquote>
-  <cite>{{ .Get "source" }}</cite>
+  {{ if .Get "source" }}<cite>{{ .Get "source" }}</cite>{{ end }}
 </div>
