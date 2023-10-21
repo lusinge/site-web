@@ -602,7 +602,7 @@ article header {
 }
 
 p {
-  overflow: scroll;
+  overflow: auto;
 }
 
 @-webkit-keyframes nprogress-spinner{
