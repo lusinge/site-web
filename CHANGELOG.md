@@ -15,6 +15,7 @@
     these should now be fixed.
 * Fixed the CSS so the `navbar` wont overflow under very low resolutions.
 * Fixed certain text inside `<p>` tags overflowing and distorting the layout.
+* Updated CSS for `blockquote` and fonts to be more readable.
 
 ## 2.0.0
 

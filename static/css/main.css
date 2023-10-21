@@ -120,12 +120,12 @@
     --ifm-heading-font-family:inherit;
     --ifm-heading-font-weight:var(--ifm-font-weight-bold);
     --ifm-heading-line-height:1.25;
-    --ifm-h1-font-size:4rem;
-    --ifm-h2-font-size:3.6rem;
-    --ifm-h3-font-size:3.2rem;
-    --ifm-h4-font-size:2.8rem;
-    --ifm-h5-font-size:2.4rem;
-    --ifm-h6-font-size:2rem;
+    --ifm-h1-font-size:3rem;
+    --ifm-h2-font-size:2.6rem;
+    --ifm-h3-font-size:2.2rem;
+    --ifm-h4-font-size:1.8rem;
+    --ifm-h5-font-size:1.4rem;
+    --ifm-h6-font-size:1rem;
     --ifm-image-alignment-padding:1.25rem;
     --ifm-leading-desktop:1.5;
     --ifm-leading:calc(var(--ifm-leading-desktop)*1rem);
@@ -147,7 +147,7 @@
     --ifm-link-hover-color:var(--ifm-link-color);
     --ifm-link-hover-decoration:underline;
     --ifm-paragraph-margin-bottom:var(--ifm-leading);
-    --ifm-blockquote-color:#6a737d;
+    --ifm-blockquote-color:#000000;
     --ifm-blockquote-font-size:var(--ifm-font-size-base);
     --ifm-blockquote-padding-horizontal:1rem;
     --ifm-blockquote-padding-vertical:1rem;
@@ -257,7 +257,6 @@
     --ifm-tabs-spacing:0.0625rem;
     --custom-font-base:"Metro",BlinkMacSystemFont,-apple-system,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue","Helvetica","Arial",sans-serif;
     --custom-font-code:"Source Code Pro",Menlo,monospace;
-    --custom-font-size-base:1rem;
     --custom-border-radius:3px;
     --custom-border-radius-md:6px;
     --custom-primary-darkest:#10633e;
@@ -303,7 +302,6 @@
     --ifm-font-family-base:var(--custom-font-base);
     --ifm-font-family-monospace:var(--custom-font-code);
     --ifm-heading-font-family:var(--custom-font-base);
-    --ifm-font-size-base:var(--custom-font-size-base);
     --ifm-heading-font-weight:700;
     --ifm-font-weight-bold:700;
     --ifm-global-shadow-lw:var(--custom-shadow-lw);
@@ -355,7 +353,7 @@ html{
     -webkit-tap-highlight-color:transparent;
 }
 
-body{
+html > body {
     color:#1c1e21;
     color:var(--ifm-font-base-color);
     font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif,BlinkMacSystemFont,Helvetica,Arial,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;
@@ -439,27 +437,27 @@ h1,h2,h3,h4,h5,h6{
     margin-top:var(--ifm-heading-margin-top)
 }
 h1{
-    font-size:4rem;
+    font-size:3rem;
     font-size:var(--ifm-h1-font-size)
 }
 h2{
-    font-size:3.6rem;
+    font-size:2.6rem;
     font-size:var(--ifm-h2-font-size)
 }
 h3{
-    font-size:3.2rem;
+    font-size:2.2rem;
     font-size:var(--ifm-h3-font-size)
 }
 h4{
-    font-size:2.8rem;
+    font-size:1.8rem;
     font-size:var(--ifm-h4-font-size)
 }
 h5{
-    font-size:2.4rem;
+    font-size:1.4rem;
     font-size:var(--ifm-h5-font-size)
 }
 h6{
-    font-size:2rem;
+    font-size:1rem;
     font-size:var(--ifm-h6-font-size)
 }
 img{
@@ -563,7 +561,7 @@ p{
 blockquote{
     border-left:6px solid #dadde1;
     border-left:6px solid var(--ifm-color-emphasis-300);
-    color:#6a737d;
+    color:#000000;
     color:var(--ifm-blockquote-color);
     font-size:15px;
     font-size:var(--ifm-blockquote-font-size);
@@ -2383,20 +2381,6 @@ div#ch-tooltip {
     padding-left: 15px;
     margin-right: auto;
     margin-left: auto;
-}
-
-html {
-    /* Is overridden on body, this font-size only effects navbar */
-    font-size: 10px;
-    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-body {
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    line-height: 1.42857143;
-    color: #000;
-    background-color: #fff;
 }
 
 /******front page******/
