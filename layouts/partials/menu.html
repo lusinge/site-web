@@ -3,7 +3,6 @@
 		<div class="navbar__items navbar__items--left">
 			<a aria-current="page" class="navbar__brand active" href="/">
 				<img class="navbar__logo logo--light" src="/images/logo-header-light.png" alt="{{ site.Params.siteName }}">
-				<img class="navbar__logo logo--dark" src="/images/logo-header-dark.png" alt="{{ site.Params.siteName }}">
 			</a>
 		</div>
 		<div class="navbar__items navbar__items--right">
@@ -16,7 +15,7 @@
 							<li  class="navbar-menu-item"><a class="navbar__item navbar__link" href="{{ .Permalink }}">{{ .Title }}</a></li>
 			     {{ end }}
 			  {{ end }}
-				<li  class="navbar-menu-item"><a class="button button--primary" href={{ site.Params.repoUrl }}>MY GIT →</a></li>
+				<li  class="navbar-menu-item"><a class="button button-primary" href={{ site.Params.repoUrl }}>MY GIT →</a></li>
 			</ul>
 		</div>
 	</div>
