@@ -12,7 +12,8 @@
 * Removed significant portions of unused CSS to load quicker.
 * Improved responsive aspects of the CSS.
 * Several root settings in `/hugo.toml` were being overridden such as `paginate`
-    these should now be fixed
+    these should now be fixed.
+* Fixed the CSS so the `navbar` wont overflow under very low resolutions.
 
 ## 2.0.0
 

@@ -1296,7 +1296,7 @@ a.card:hover{
     height:3.75rem;
     height:var(--ifm-navbar-height);
     padding:var(--ifm-navbar-padding-vertical) var(--ifm-navbar-padding-horizontal);
-    width:100%
+    width:100vw;
 }
 .navbar,.navbar>.container{
     display:flex
@@ -2343,7 +2343,7 @@ div#ch-tooltip {
  }
 
  /******navbar*****/
-:root {
+/* :root {
     --ifm-navbar-height: 2rem;
     --ifm-navbar-item-padding-vertical: 0.25rem;
 }
@@ -2362,8 +2362,7 @@ div#ch-tooltip {
     box-sizing: border-box;
     height: var(--ifm-navbar-height);
     padding: var(--ifm-navbar-padding-vertical) var(--ifm-navbar-padding-horizontal);
-    width: 100%;
-}
+} */
 
 
 /***contact****/
