@@ -2536,26 +2536,6 @@ li.navbar-menu-item > .button {
   }
 
   /*****************************************************************************
-  ** Navbar Section
-  *****************************************************************************/
-
-  .navbar>.container{
-      padding:0
-  }
-
-  .navbar .navbar__items--right{
-      display:none
-  }
-
-  .navbar .navbar__item{
-      display:none
-  }
-
-  .navbar .navbar__search .navbar__search-input{
-      width:9rem
-  }
-
-  /*****************************************************************************
   ** Info-field Section
   *****************************************************************************/
 
