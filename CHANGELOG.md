@@ -11,6 +11,8 @@
     columns.
 * Removed significant portions of unused CSS to load quicker.
 * Improved responsive aspects of the CSS.
+* Several root settings in `/hugo.toml` were being overridden such as `paginate`
+    these should now be fixed
 
 ## 2.0.0
 

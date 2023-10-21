@@ -1,12 +1,5 @@
 Copyright = "Jeffrey Phillips Freeman 2023 - present"
 
-paginate = 20
-pygmentsCodeFences = true
-pygmentsCodeFencesGuessSyntax = true
-pygmentsStyle = "monokai"
-DefaultContentLanguage = "en"
-defaultContentLanguageInSubdir = false
-
 enableRobotsTXT = true
 uglyURLs=false
 pluralizelisttitles=false
