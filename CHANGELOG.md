@@ -9,6 +9,8 @@
     `info-value.html` under the `/layouts/shortcodes/` directory.
 * Added the `container-split` short code which will split a container into two
     columns.
+* Removed significant portions of unused CSS to load quicker.
+* Improved responsive aspects of the CSS.
 
 ## 2.0.0
 

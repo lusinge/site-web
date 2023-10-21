@@ -1,15 +1,15 @@
-<header>
+<header class="titled-side">
   <div class="container">
-    <div class="row">
-      <div class="col col--5">
+    <div class="row titled-side__inner">
+      <div class="col col--5 titled-side--title center-text">
         <h2>{{ .Get 0 }}</h2>
         <p >{{ .Get 1 }}</p>
         <div>
           <a class="button button-secondary button-outline" href="{{ .Get 3 }}">{{ .Get 2 }}</a>
-          <a class="button button-primary" to="https://git.qoto.org/goblin-ogm/goblin" href="{{ .Get 5 }}">{{ .Get 4 }}</a>
+          <a class="button button-primary titled-side-content" to="{{ .Get 5 }}" href="{{ .Get 5 }}">{{ .Get 4 }}</a>
         </div>
       </div>
-      <div class="col col--7">
+      <div class="col col--7 titled-side--content">
         {{ .Inner }}
       </div>
     </div>
