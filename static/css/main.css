@@ -2186,6 +2186,12 @@ section > .container > .row > .col {
 .microblog .more {
   padding-right: 1em;
   padding-bottom: 1em;
+  display: flex;
+}
+
+.microblog .more .btn {
+  margin-left: auto;
+  margin-right: 0;
 }
 
 /* Styling for table of contents */
