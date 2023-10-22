@@ -8,6 +8,7 @@
 * The `figure` shortcode will now make images clickable to see the full size.
 * The tags page now renders categories as the the title instead of the slug
     name.
+* Added additional argument to `example` shortcode to turn off the copy button.
 
 ## 2.1.0
 
