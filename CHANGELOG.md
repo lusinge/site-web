@@ -5,6 +5,7 @@
 * When a post has an `image_header` parameter this image is set as an attachment
     to ActivityPub posts
 * Fixed some poor CSS rendering for quote-box.
+* the `figure` shortcode will now make images clickable to see the full size.
 
 ## 2.1.0
 
