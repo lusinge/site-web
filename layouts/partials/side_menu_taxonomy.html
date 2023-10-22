@@ -4,7 +4,7 @@
     {{ $hereLink := .Permalink }}
     {{range $name, $taxonomy := .Site.Taxonomies.tags}} {{ $cnt := .Count }}
      {{ with $.Site.GetPage (printf "/tags/%s" $name) }}
-       <a href="{{ .RelPermalink }}" class='menu-item tag{{ if (eq .Permalink $hereLink) }} selected{{ end }}' data-slug='{{$name}}' title="All pages with tag <i>{{$name}}</i>">{{$name}} ({{$cnt}})</a>
+       <a href="{{ .RelPermalink }}" class='menu-item tag{{ if (eq .Permalink $hereLink) }} selected{{ end }}' data-slug='{{ .LinkTitle }}' title="All pages with tag <i>{{.LinkTitle}}</i>">{{.LinkTitle}} ({{$cnt}})</a>
      {{end}}
    {{end}}
   </nav>
