@@ -73,6 +73,7 @@
 }
 .ps-root .ps-algorithmic.with-linenum .ps-line.ps-code {
   text-indent: -1.6em;
+  overflow: visible;
 }
 .ps-root .ps-algorithmic.with-linenum .ps-line.ps-code > span {
   text-indent: 0;

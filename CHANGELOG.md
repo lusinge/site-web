@@ -9,6 +9,7 @@
 * The tags page now renders categories as the the title instead of the slug
     name.
 * Added additional argument to `example` shortcode to turn off the copy button.
+* Fixed pseudocode not rendering properly due to element `p` overflow setting.
 
 ## 2.1.0
 
