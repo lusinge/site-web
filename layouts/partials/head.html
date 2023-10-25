@@ -192,81 +192,96 @@ document.addEventListener("DOMContentLoaded", function() {
       return xhr.response
   };
 
-
   // Get the data as a String of JSON
-  const data = JSON.parse(getJSON('{{ .Site.Params.gitlabHeatmapData }}'));
+  const dataSources = {{ .Site.Params.gitlabHeatmapData }};
+  if (dataSources.length > 0) {
+    const data = JSON.parse(getJSON(dataSources[0]));
+    // Convert string to JSON
+    const dataMap = new Map(Object.entries(data));
 
-  // Convert string to JSON
-  const dataMap = new Map(Object.entries(data));
+    for ( let i = 1; i < dataSources.length ; i++) {
+      let dataNew = JSON.parse(getJSON(dataSources[i]));
+      let dataMapNew = new Map(Object.entries(dataNew));
 
-  //convert JSON to an array of maps
-  const newData = []
-  for( let [entry, value] of dataMap ) {
-    newData.push({"date": entry, "value": value});
-  }
+      for (let [key, value] of dataMapNew) {
+        let valueOld = dataMap.get(key);
+        if( valueOld ) {
+          dataMap.set(key, valueOld + value);
+        } else {
+          dataMap.set(key, value);
+        }
+      }
+    }
 
-  const d = new Date();
-  const lastYear = d.setMonth(d.getMonth() - 11);
+    //convert JSON to an array of maps
+    const newData = []
+    for( let [entry, value] of dataMap ) {
+      newData.push({"date": entry, "value": value});
+    }
 
-  // Now render it.
-  const cal = new CalHeatmap();
-  cal.paint({
-    data: {
-      source: newData,
-      type: 'json',
-      x: 'date',
-      y: 'value',
-      groupY: 'max',
-    },
-    date: { start: lastYear },
-    range: 12,
-    scale: {
-      color: {
-        type: 'threshold',
-        range: ['#0000FF', '#3000CF', '#60009F', '#90006F', '#C0003F', '#F0000F', '#FF0000'],
-        domain: [2, 3, 5, 8, 13, 21],
+    const d = new Date();
+    const lastYear = d.setMonth(d.getMonth() - 11);
+
+    // Now render it.
+    const cal = new CalHeatmap();
+    cal.paint({
+      data: {
+        source: newData,
+        type: 'json',
+        x: 'date',
+        y: 'value',
+        groupY: 'max',
       },
-    },
-    domain: {
-      type: 'month',
-      gutter: 4,
-      label: { text: 'MMM', textAlign: 'start', position: 'top' },
-    },
-    subDomain: { type: 'ghDay', radius: 2, width: 11, height: 11, gutter: 4 },
-  },
-  [
-    [
-      Legend,
-      {
-        tickSize: 1,
-        width: 100,
-        itemSelector: '#cal-heatmap-legend',
-        label: 'Activity per day',
-      },
-    ],
-    [
-      Tooltip,
-      {
-        text: function (date, value, dayjsDate) {
-          return (
-            (value ? value : 'No') +
-            ' contributions on ' +
-            dayjsDate.format('dddd, MMMM D, YYYY')
-          );
+      date: { start: lastYear },
+      range: 12,
+      scale: {
+        color: {
+          type: 'threshold',
+          range: ['#0000FF', '#3000CF', '#60009F', '#90006F', '#C0003F', '#F0000F', '#FF0000'],
+          domain: [2, 3, 5, 8, 13, 21],
         },
       },
-    ],
-    [
-      CalendarLabel,
-      {
-        width: 30,
-        textAlign: 'start',
-        text: () => dayjs.weekdaysShort().map((d, i) => (i % 2 == 0 ? '' : d)),
-        padding: [25, 0, 0, 0],
+      domain: {
+        type: 'month',
+        gutter: 4,
+        label: { text: 'MMM', textAlign: 'start', position: 'top' },
       },
-    ],
-  ]
-);
+      subDomain: { type: 'ghDay', radius: 2, width: 11, height: 11, gutter: 4 },
+    },
+    [
+      [
+        Legend,
+        {
+          tickSize: 1,
+          width: 100,
+          itemSelector: '#cal-heatmap-legend',
+          label: 'Activity per day',
+        },
+      ],
+      [
+        Tooltip,
+        {
+          text: function (date, value, dayjsDate) {
+            return (
+              (value ? value : 'No') +
+              ' contributions on ' +
+              dayjsDate.format('dddd, MMMM D, YYYY')
+            );
+          },
+        },
+      ],
+      [
+        CalendarLabel,
+        {
+          width: 30,
+          textAlign: 'start',
+          text: () => dayjs.weekdaysShort().map((d, i) => (i % 2 == 0 ? '' : d)),
+          padding: [25, 0, 0, 0],
+        },
+      ],
+    ]
+  );
+}
 
 </script>
 

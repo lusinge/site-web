@@ -42,4 +42,4 @@ siteEmail="the@jeffreyfreeman.me"
 postHashtags=["Fediverse", "ActivityPub", "MastoAdmin"]
 renderDefaultHashtags=true
 renderArticleHashtags=true
-gitlabHeatmapData="https://git.qoto.org/users/freemo/calendar.json"
+gitlabHeatmapData=["https://corsproxy.io?https://gitlab.com/users/freemo/calendar.json", "https://git.qoto.org/users/freemo/calendar.json"]

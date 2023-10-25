@@ -10,6 +10,8 @@
     name.
 * Added additional argument to `example` shortcode to turn off the copy button.
 * Fixed pseudocode not rendering properly due to element `p` overflow setting.
+* Added the ability for the `git-heatmap` to combine activity from multiple
+    sources.
 
 ## 2.1.0
 
