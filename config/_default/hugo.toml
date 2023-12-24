@@ -1,4 +1,4 @@
-Copyright = "Jeffrey Phillips Freeman 2023 - present"
+Copyright = "Lucien GHEERBRANT 2023 - present"
 
 enableRobotsTXT = true
 uglyURLs=false
@@ -79,7 +79,7 @@ unsafe = true
 getenv = ['^HUGO_', '^CI$']
 
 [params]
-siteAuthor="Jeffrey Phillips Freeman"
+siteAuthor="Lucien GHEERBRANT"
 
 [sitemap]
 filename = 'sitemap.xml'
